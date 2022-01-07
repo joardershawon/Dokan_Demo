@@ -1,3 +1,4 @@
+import 'package:dokan_demo/presentation/homePage/widgets/home_body.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,12 +7,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: const [
-            Text('HI'),
-          ],
-        ),
+      backgroundColor: Theme.of(context).backgroundColor,
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: const Text('Product List'),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Icon(
+              Icons.search,
+              size: 30,
+            ),
+          ),
+        ],
+      ),
+      body: const SafeArea(
+        child: HomeBody(),
       ),
     );
   }

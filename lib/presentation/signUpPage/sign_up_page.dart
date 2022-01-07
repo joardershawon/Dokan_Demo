@@ -15,8 +15,9 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SignUpBody(),
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: const SignUpBody(),
     );
   }
 }
@@ -59,10 +60,11 @@ class SignUpBody extends StatelessWidget {
                 title: 'Sign Up',
                 onTap: () {
                   //TODO: SIGN UP
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
                       builder: (context) => const HomePage(),
                     ),
+                    (route) => false,
                   );
                 },
               ),

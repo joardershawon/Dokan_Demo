@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Coolors {
-  static const kBgColor = Color(0xffE5E5E5);
+  static const kBgColor = Color(0xffF8F8F8);
   static const kWhiteColor = Color(0xffFFFFFF);
   static const kOrangeColor = Color(0xffF75F55);
   static const kBlueColor = Color(0xff2893E3);
