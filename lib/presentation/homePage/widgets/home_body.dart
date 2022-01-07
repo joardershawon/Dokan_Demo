@@ -1,5 +1,5 @@
-import 'package:dokan_demo/presentation/core/size.dart';
-import 'package:dokan_demo/presentation/design/coolors.dart';
+import '../../core/size.dart';
+import '../../design/coolors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,15 +14,16 @@ class HomeBody extends StatelessWidget {
     const itemWidth = 160.0;
     const itemHeight = 290.0;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 10,
+      ),
       child: CustomScrollView(
+        key: UniqueKey(),
+        scrollDirection: Axis.vertical,
         slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                const FilterWidget(),
-              ],
-            ),
+          const SliverToBoxAdapter(
+            child: FilterWidget(),
           ),
           SliverToBoxAdapter(
             child: SizedBox(
@@ -42,7 +43,12 @@ class HomeBody extends StatelessWidget {
               },
               childCount: 6,
             ),
-          )
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: getPercentSize(5, true, context),
+            ),
+          ),
         ],
       ),
     );

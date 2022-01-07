@@ -1,5 +1,5 @@
-import 'package:dokan_demo/presentation/core/widgets/social_button_widget.dart';
-import 'package:dokan_demo/presentation/core/widgets/social_row_widget.dart';
+import '../../core/widgets/social_button_widget.dart';
+import '../../core/widgets/social_row_widget.dart';
 
 import '../../core/size.dart';
 import '../../core/widgets/custom_forgot_password.dart';
@@ -57,11 +57,11 @@ class LoginPageBody extends StatelessWidget {
               FooterText(
                 text1: 'Create New Account',
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const SignUpPage(),
-                    ),
-                  );
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const SignUpPage(),
+                  //   ),
+                  // );
                 },
               ),
               // FooterText(

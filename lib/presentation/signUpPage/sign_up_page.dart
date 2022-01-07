@@ -1,8 +1,8 @@
-import 'package:dokan_demo/presentation/homePage/home_page.dart';
+import '../homePage/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:dokan_demo/presentation/core/widgets/social_row_widget.dart';
+import '../core/widgets/social_row_widget.dart';
 
 import '../core/size.dart';
 import '../core/widgets/custom_text_form_field.dart';
@@ -60,12 +60,13 @@ class SignUpBody extends StatelessWidget {
                 title: 'Sign Up',
                 onTap: () {
                   //TODO: SIGN UP
-                  Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
-                    (route) => false,
-                  );
+
+                  // Navigator.of(context).pushAndRemoveUntil(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const HomePage(),
+                  //   ),
+                  //   (route) => false,
+                  // );
                 },
               ),
               const SocialRowWidget(),

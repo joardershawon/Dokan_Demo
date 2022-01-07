@@ -1,14 +1,17 @@
-import 'package:dokan_demo/presentation/homePage/widgets/home_body.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/custom_floating_button.dart';
+import '../router/router.gr.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AutoTabsScaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: AppBar(
+      appBarBuilder: (context, tabsRouter) => AppBar(
         elevation: 0,
         centerTitle: true,
         title: const Text('Product List'),
@@ -22,9 +25,17 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: const SafeArea(
-        child: HomeBody(),
-      ),
+      routes: const [
+        HomeBodyRouter(),
+        ProfileRouter(),
+        LoginPageRouter(),
+        SignUpPageRouter(),
+      ],
+      bottomNavigationBuilder: (context, tabsRouter) {
+        return CustomBNBar(
+          tabsRouter: tabsRouter,
+        );
+      },
     );
   }
 }

@@ -1,5 +1,6 @@
-import '../size.dart';
 import 'package:flutter/material.dart';
+
+import '../size.dart';
 
 class OrangeButton extends StatelessWidget {
   const OrangeButton({
