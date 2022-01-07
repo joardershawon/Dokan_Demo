@@ -14,4 +14,5 @@ class Coolors {
   static const kCheckBoxColor = Color(0xffFF708A);
   static const kBottomSheetCollapseIconColor = Color(0xffFFD3DD);
   static const kBottomSheetButtonColor = Color(0xff1ABC9C);
+  static final kShadowColor = const Color(0xff8B2F40).withOpacity(.25);
 }
