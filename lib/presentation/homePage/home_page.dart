@@ -27,9 +27,9 @@ class HomePage extends StatelessWidget {
       ),
       routes: const [
         HomeBodyRouter(),
-        ProfileRouter(),
         LoginPageRouter(),
         SignUpPageRouter(),
+        ProfileRouter(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return CustomBNBar(

@@ -1,3 +1,4 @@
+import 'package:dokan_demo/presentation/core/size.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -6,8 +7,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        Text('data'),
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Scaffold.of(context).showBottomSheet(
+                  (context) => Container(
+                    color: Colors.amber,
+                    height: getPercentSize(40, true, context),
+                  ),
+                );
+              },
+              child: const Text('Show Bottom Sheet'),
+            ),
+          ],
+        ),
       ],
     );
   }
