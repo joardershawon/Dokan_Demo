@@ -1,3 +1,7 @@
+import 'package:dokan_demo/application/product/product_bloc.dart';
+import 'package:dokan_demo/injection.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../router/router.gr.dart';
 
 import '../design/coolors.dart';
@@ -10,91 +14,94 @@ class MyApp extends StatelessWidget {
   final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      debugShowCheckedModeBanner: false,
-      title: 'Dokan Demo',
-      theme: ThemeData(
-        backgroundColor: Coolors.kBgColor,
-        primaryColor: Coolors.kOrangeColor,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.all(20),
-            primary: Coolors.kOrangeColor,
-            textStyle: GoogleFonts.roboto(
-              textStyle: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 17,
-                color: Colors.white,
+    return BlocProvider(
+      create: (context) => getIt!<ProductBloc>()..add(const ProductEvent.started()),
+      child: MaterialApp.router(
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        debugShowCheckedModeBanner: false,
+        title: 'Dokan Demo',
+        theme: ThemeData(
+          backgroundColor: Coolors.kBgColor,
+          primaryColor: Coolors.kOrangeColor,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.all(20),
+              primary: Coolors.kOrangeColor,
+              textStyle: GoogleFonts.roboto(
+                textStyle: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 17,
+                  color: Colors.white,
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
           ),
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Coolors.kBgColor,
-          iconTheme: const IconThemeData(
-            color: Coolors.kAppBarTitleTextColor,
-          ),
-          titleTextStyle: GoogleFonts.roboto(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 25,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Coolors.kBgColor,
+            iconTheme: const IconThemeData(
               color: Coolors.kAppBarTitleTextColor,
             ),
-          ),
-        ),
-        textTheme: TextTheme(
-          headline1: GoogleFonts.roboto(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 25,
-              color: Colors.black,
+            titleTextStyle: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 25,
+                color: Coolors.kAppBarTitleTextColor,
+              ),
             ),
           ),
-          headline2: GoogleFonts.roboto(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 15,
-              color: Coolors.kGreyTextColor,
+          textTheme: TextTheme(
+            headline1: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 25,
+                color: Colors.black,
+              ),
+            ),
+            headline2: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 15,
+                color: Coolors.kGreyTextColor,
+              ),
+            ),
+            headline3: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w300,
+                fontSize: 17.36,
+                color: Colors.black,
+              ),
+            ),
+            headline4: GoogleFonts.lato(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 25,
+                color: Coolors.kAppBarTitleTextColor,
+                letterSpacing: .14,
+              ),
+            ),
+            headline5: GoogleFonts.lato(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 15,
+                color: Coolors.kGreyTextColor,
+                letterSpacing: .14,
+              ),
             ),
           ),
-          headline3: GoogleFonts.roboto(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w300,
-              fontSize: 17.36,
-              color: Colors.black,
+          inputDecorationTheme: InputDecorationTheme(
+            hintStyle: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 17.5,
+                color: Coolors.kGreyTextColor,
+              ),
             ),
+            suffixIconColor: Coolors.kGreyTextColor,
           ),
-          headline4: GoogleFonts.lato(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w900,
-              fontSize: 25,
-              color: Coolors.kAppBarTitleTextColor,
-              letterSpacing: .14,
-            ),
-          ),
-          headline5: GoogleFonts.lato(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 15,
-              color: Coolors.kGreyTextColor,
-              letterSpacing: .14,
-            ),
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: GoogleFonts.roboto(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 17.5,
-              color: Coolors.kGreyTextColor,
-            ),
-          ),
-          suffixIconColor: Coolors.kGreyTextColor,
         ),
       ),
     );

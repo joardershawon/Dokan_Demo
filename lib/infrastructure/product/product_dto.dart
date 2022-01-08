@@ -1,188 +1,242 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+import 'dart:convert';
 
-part 'product_dto.freezed.dart';
-part 'product_dto.g.dart';
+class Product {
+  Product({
+    @required this.id,
+    @required this.name,
+    @required this.dateCreated,
+    @required this.dateCreatedGmt,
+    @required this.featured,
+    @required this.description,
+    @required this.shortDescription,
+    @required this.price,
+    @required this.regularPrice,
+    @required this.salePrice,
+    @required this.averageRating,
+    @required this.ratingCount,
+    @required this.images,
+    @required this.links,
+  });
 
-@freezed
-abstract class ProductDto with _$ProductDto {
-  const factory ProductDto({
-    @required int? id,
-    @required String? name,
-    @required String? slug,
-    @required String? postAuthor,
-    @required String? permalink,
-    @required DateTime? dateCreated,
-    @required DateTime? dateCreatedGmt,
-    @required DateTime? dateModified,
-    @required DateTime? dateModifiedGmt,
-    @required String? type,
-    @required String? status,
-    @required bool? featured,
-    @required String? catalogVisibility,
-    @required String? description,
-    @required String? shortDescription,
-    @required String? sku,
-    @required String? price,
-    @required String? regularPrice,
-    @required String? salePrice,
-    @required dynamic dateOnSaleFrom,
-    @required dynamic dateOnSaleFromGmt,
-    @required dynamic dateOnSaleTo,
-    @required dynamic dateOnSaleToGmt,
-    @required String? priceHtml,
-    @required bool? onSale,
-    @required bool? purchasable,
-    @required int? totalSales,
-    @required bool? virtual,
-    @required bool? downloadable,
-    @required List<Download>? downloads,
-    @required int? downloadLimit,
-    @required int? downloadExpiry,
-    @required String? externalUrl,
-    @required String? buttonText,
-    @required String? taxStatus,
-    @required String? taxClass,
-    @required bool? manageStock,
-    @required dynamic stockQuantity,
-    @required String? lowStockAmount,
-    @required bool? inStock,
-    @required String? backorders,
-    @required bool? backordersAllowed,
-    @required bool? backordered,
-    @required bool? soldIndividually,
-    @required String? weight,
-    @required Dimensions? dimensions,
-    @required bool? shippingRequired,
-    @required bool? shippingTaxable,
-    @required String? shippingClass,
-    @required int? shippingClassId,
-    @required bool? reviewsAllowed,
-    @required String? averageRating,
-    @required int? ratingCount,
-    @required List<int>? relatedIds,
-    @required List<dynamic>? upsellIds,
-    @required List<dynamic>? crossSellIds,
-    @required int? parentId,
-    @required String? purchaseNote,
-    @required List<Category>? categories,
-    @required List<dynamic>? tags,
-    @required List<Image>? images,
-    @required List<dynamic>? attributes,
-    @required List<dynamic>? defaultAttributes,
-    @required List<dynamic>? variations,
-    @required List<dynamic>? groupedProducts,
-    @required int? menuOrder,
-    @required List<MetaDatum>? metaData,
-    @required Store? store,
-    @required Links? links,
-  }) = _ProductDto;
+  final int? id;
+  final String? name;
+  final DateTime? dateCreated;
+  final DateTime? dateCreatedGmt;
+  final bool? featured;
+  final String? description;
+  final String? shortDescription;
+  final String? price;
+  final String? regularPrice;
+  final String? salePrice;
+  final String? averageRating;
+  final int? ratingCount;
+  final List<Image>? images;
+  final Links? links;
 
-  factory ProductDto.fromJson(Map<String, dynamic> json) => _$ProductDtoFromJson(json);
+  Product copyWith({
+    int? id,
+    String? name,
+    DateTime? dateCreated,
+    DateTime? dateCreatedGmt,
+    bool? featured,
+    String? description,
+    String? shortDescription,
+    String? price,
+    String? regularPrice,
+    String? salePrice,
+    String? averageRating,
+    int? ratingCount,
+    List<Image>? images,
+    Links? links,
+  }) =>
+      Product(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        dateCreated: dateCreated ?? this.dateCreated,
+        dateCreatedGmt: dateCreatedGmt ?? this.dateCreatedGmt,
+        featured: featured ?? this.featured,
+        description: description ?? this.description,
+        shortDescription: shortDescription ?? this.shortDescription,
+        price: price ?? this.price,
+        regularPrice: regularPrice ?? this.regularPrice,
+        salePrice: salePrice ?? this.salePrice,
+        averageRating: averageRating ?? this.averageRating,
+        ratingCount: ratingCount ?? this.ratingCount,
+        images: images ?? this.images,
+        links: links ?? this.links,
+      );
+
+  factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Product.fromMap(Map<String, dynamic> json) => Product(
+        id: json["id"],
+        name: json["name"],
+        dateCreated: DateTime.parse(json["date_created"]),
+        dateCreatedGmt: DateTime.parse(json["date_created_gmt"]),
+        featured: json["featured"],
+        description: json["description"],
+        shortDescription: json["short_description"],
+        price: json["price"],
+        regularPrice: json["regular_price"],
+        salePrice: json["sale_price"],
+        averageRating: json["average_rating"],
+        ratingCount: json["rating_count"],
+        images: List<Image>.from(json["images"].map((x) => Image.fromMap(x))),
+        links: Links.fromMap(json["_links"]),
+      );
+
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "name": name,
+        "date_created": dateCreated!.toIso8601String(),
+        "date_created_gmt": dateCreatedGmt!.toIso8601String(),
+        "featured": featured,
+        "description": description,
+        "short_description": shortDescription,
+        "price": price,
+        "regular_price": regularPrice,
+        "sale_price": salePrice,
+        "average_rating": averageRating,
+        "rating_count": ratingCount,
+        "images": List<dynamic>.from(images!.map((x) => x.toMap())),
+        "_links": links!.toMap(),
+      };
 }
 
-@freezed
-abstract class Category with _$Category {
-  const factory Category({
-    @required int? id,
-    @required String? name,
-    @required String? slug,
-  }) = _Category;
+class Image {
+  Image({
+    @required this.id,
+    @required this.dateCreated,
+    @required this.dateCreatedGmt,
+    @required this.dateModified,
+    @required this.dateModifiedGmt,
+    @required this.src,
+    @required this.name,
+    @required this.alt,
+    @required this.position,
+  });
 
-  factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
+  final int? id;
+  final DateTime? dateCreated;
+  final DateTime? dateCreatedGmt;
+  final DateTime? dateModified;
+  final DateTime? dateModifiedGmt;
+  final String? src;
+  final String? name;
+  final String? alt;
+  final int? position;
+
+  Image copyWith({
+    int? id,
+    DateTime? dateCreated,
+    DateTime? dateCreatedGmt,
+    DateTime? dateModified,
+    DateTime? dateModifiedGmt,
+    String? src,
+    String? name,
+    String? alt,
+    int? position,
+  }) =>
+      Image(
+        id: id ?? this.id,
+        dateCreated: dateCreated ?? this.dateCreated,
+        dateCreatedGmt: dateCreatedGmt ?? this.dateCreatedGmt,
+        dateModified: dateModified ?? this.dateModified,
+        dateModifiedGmt: dateModifiedGmt ?? this.dateModifiedGmt,
+        src: src ?? this.src,
+        name: name ?? this.name,
+        alt: alt ?? this.alt,
+        position: position ?? this.position,
+      );
+
+  factory Image.fromJson(String str) => Image.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Image.fromMap(Map<String, dynamic> json) => Image(
+        id: json["id"],
+        dateCreated: DateTime.parse(json["date_created"]),
+        dateCreatedGmt: DateTime.parse(json["date_created_gmt"]),
+        dateModified: DateTime.parse(json["date_modified"]),
+        dateModifiedGmt: DateTime.parse(json["date_modified_gmt"]),
+        src: json["src"],
+        name: json["name"],
+        alt: json["alt"],
+        position: json["position"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "date_created": dateCreated!.toIso8601String(),
+        "date_created_gmt": dateCreatedGmt!.toIso8601String(),
+        "date_modified": dateModified!.toIso8601String(),
+        "date_modified_gmt": dateModifiedGmt!.toIso8601String(),
+        "src": src,
+        "name": name,
+        "alt": alt,
+        "position": position,
+      };
 }
 
-@freezed
-abstract class Dimensions with _$Dimensions {
-  const factory Dimensions({
-    @required String? length,
-    @required String? width,
-    @required String? height,
-  }) = _Dimensions;
+class Links {
+  Links({
+    @required this.self,
+    @required this.collection,
+  });
 
-  factory Dimensions.fromJson(Map<String, dynamic> json) => _$DimensionsFromJson(json);
+  final List<Collection>? self;
+  final List<Collection>? collection;
+
+  Links copyWith({
+    List<Collection>? self,
+    List<Collection>? collection,
+  }) =>
+      Links(
+        self: self ?? this.self,
+        collection: collection ?? this.collection,
+      );
+
+  factory Links.fromJson(String str) => Links.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Links.fromMap(Map<String, dynamic> json) => Links(
+        self: List<Collection>.from(json["self"].map((x) => Collection.fromMap(x))),
+        collection: List<Collection>.from(json["collection"].map((x) => Collection.fromMap(x))),
+      );
+
+  Map<String, dynamic> toMap() => {
+        "self": List<dynamic>.from(self!.map((x) => x.toMap())),
+        "collection": List<dynamic>.from(collection!.map((x) => x.toMap())),
+      };
 }
 
-@freezed
-abstract class Download with _$Download {
-  const factory Download({
-    @required String? id,
-    @required String? name,
-    @required String? file,
-  }) = _Download;
+class Collection {
+  Collection({
+    @required this.href,
+  });
 
-  factory Download.fromJson(Map<String, dynamic> json) => _$DownloadFromJson(json);
-}
+  final String? href;
 
-@freezed
-abstract class Image with _$Image {
-  const factory Image({
-    @required int? id,
-    @required DateTime? dateCreated,
-    @required DateTime? dateCreatedGmt,
-    @required DateTime? dateModified,
-    @required DateTime? dateModifiedGmt,
-    @required String? src,
-    @required String? name,
-    @required String? alt,
-    @required int? position,
-  }) = _Image;
+  Collection copyWith({
+    String? href,
+  }) =>
+      Collection(
+        href: href ?? this.href,
+      );
 
-  factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
-}
+  factory Collection.fromJson(String str) => Collection.fromMap(json.decode(str));
 
-@freezed
-abstract class Links with _$Links {
-  const factory Links({
-    @required List<Collection>? self,
-    @required List<Collection>? collection,
-  }) = _Links;
+  String toJson() => json.encode(toMap());
 
-  factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
-}
+  factory Collection.fromMap(Map<String, dynamic> json) => Collection(
+        href: json["href"],
+      );
 
-@freezed
-abstract class Collection with _$Collection {
-  const factory Collection({
-    @required String? href,
-  }) = _Collection;
-
-  factory Collection.fromJson(Map<String, dynamic> json) => _$CollectionFromJson(json);
-}
-
-@freezed
-abstract class MetaDatum with _$MetaDatum {
-  const factory MetaDatum({
-    @required int? id,
-    @required String? key,
-    @required dynamic value,
-  }) = _MetaDatum;
-
-  factory MetaDatum.fromJson(Map<String, dynamic> json) => _$MetaDatumFromJson(json);
-}
-
-@freezed
-abstract class Store with _$Store {
-  const factory Store({
-    @required int? id,
-    @required String? name,
-    @required String? url,
-    @required String? avatar,
-    @required Address? address,
-  }) = _Store;
-
-  factory Store.fromJson(Map<String, dynamic> json) => _$StoreFromJson(json);
-}
-
-@freezed
-abstract class Address with _$Address {
-  const factory Address({
-    @required String? street1,
-    @required String? street2,
-    @required String? city,
-    @required String? zip,
-    @required String? country,
-    @required String? state,
-  }) = _Address;
-
-  factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
+  Map<String, dynamic> toMap() => {
+        "href": href,
+      };
 }

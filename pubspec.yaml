@@ -28,6 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   auto_route: ^3.2.1
+  cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -40,6 +41,7 @@ dependencies:
   modal_bottom_sheet: ^2.0.0
   path_provider: ^2.0.8
   rxdart: ^0.27.3
+  shimmer: ^2.0.0
 
 dev_dependencies:
   auto_route_generator: ^3.2.1

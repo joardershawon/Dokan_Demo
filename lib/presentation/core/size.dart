@@ -11,6 +11,5 @@ double getPercentSize(double percent, bool isHeight, BuildContext context) {
 double roundToFixedDigit(double input) {
   var x = input.toStringAsFixed(3);
   final y = double.parse(x);
-  print(y);
   return y;
 }
