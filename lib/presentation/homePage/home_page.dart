@@ -1,41 +1,56 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:dokan_demo/presentation/homePage/widgets/home_body.dart';
+import 'package:dokan_demo/presentation/profilePage/profile_page.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/custom_floating_button.dart';
-import '../router/router.gr.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  late TabController tabController = TabController(
+    length: 2,
+    vsync: this,
+  );
+  @override
+  void dispose() {
+    super.dispose();
+    tabController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
+    return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBarBuilder: (context, tabsRouter) => AppBar(
-        elevation: 0,
-        centerTitle: true,
-        title: const Text('Product List'),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Icon(
-              Icons.search,
-              size: 30,
+      // ignore: prefer_const_literals_to_create_immutables
+      body: Stack(
+        children: [
+          TabBarView(
+            controller: tabController,
+            children: const [
+              HomeBody(),
+              // LoginPage(),
+              // SignUpPage(),
+              ProfilePage(),
+            ],
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomBNBar(
+              onTap1: () => setState(() => tabController.animateTo(0)),
+              onTap2: () => setState(() => tabController.animateTo(1)),
+              onTap3: () => setState(() => tabController.animateTo(2)),
+              onTap4: () => setState(() => tabController.animateTo(3)),
+              currentIndex: tabController.index,
             ),
           ),
         ],
       ),
-      routes: const [
-        HomeBodyRouter(),
-        LoginPageRouter(),
-        SignUpPageRouter(),
-        ProfileRouter(),
-      ],
-      bottomNavigationBuilder: (context, tabsRouter) {
-        return CustomBNBar(
-          tabsRouter: tabsRouter,
-        );
-      },
     );
   }
 }

@@ -22,6 +22,22 @@ class HomeBody extends StatelessWidget {
         key: UniqueKey(),
         scrollDirection: Axis.vertical,
         slivers: [
+          SliverToBoxAdapter(
+            child: AppBar(
+              elevation: 0,
+              centerTitle: true,
+              title: const Text('Product List'),
+              actions: const [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
+          ),
           const SliverToBoxAdapter(
             child: FilterWidget(),
           ),
@@ -46,7 +62,7 @@ class HomeBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: getPercentSize(5, true, context),
+              height: getPercentSize(8, true, context),
             ),
           ),
         ],

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dokan_demo/presentation/design/coolors.dart';
 import '../../core/size.dart';
 import '../../design/custom_paint_1.dart';
@@ -8,13 +7,21 @@ import 'package:flutter_svg/svg.dart';
 class CustomBNBar extends StatelessWidget {
   const CustomBNBar({
     Key? key,
-    required this.tabsRouter,
+    required this.onTap1,
+    required this.onTap2,
+    required this.onTap3,
+    required this.onTap4,
+    required this.currentIndex,
   }) : super(key: key);
-  final TabsRouter? tabsRouter;
+  final VoidCallback? onTap1, onTap2, onTap3, onTap4;
+  final int? currentIndex;
 
   @override
   Widget build(BuildContext context) {
-    final size = Size(getPercentSize(100, false, context), getPercentSize(100, true, context));
+    final size = Size(
+      getPercentSize(100, false, context),
+      getPercentSize(100, true, context),
+    );
     return SizedBox(
       width: size.width,
       height: 60,
@@ -41,34 +48,34 @@ class CustomBNBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GestureDetector(
-                  onTap: () => tabsRouter!.setActiveIndex(0),
+                  onTap: () => onTap1!(),
                   child: SvgPicture.asset(
                     'assets/bottom_nav_1.svg',
-                    color: tabsRouter!.activeIndex == 0 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
+                    color: currentIndex == 0 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => tabsRouter!.setActiveIndex(1),
+                  onTap: () => onTap2!(),
                   child: SvgPicture.asset(
                     'assets/bottom_nav_2.svg',
-                    color: tabsRouter!.activeIndex == 1 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
+                    color: currentIndex == 1 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
                   ),
                 ),
                 Container(
                   width: size.width * 0.20,
                 ),
                 GestureDetector(
-                  onTap: () => tabsRouter!.setActiveIndex(2),
+                  onTap: () => onTap3!(),
                   child: SvgPicture.asset(
                     'assets/bottom_nav_3.svg',
-                    color: tabsRouter!.activeIndex == 2 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
+                    color: currentIndex == 2 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => tabsRouter!.setActiveIndex(3),
+                  onTap: () => onTap4!(),
                   child: SvgPicture.asset(
                     'assets/bottom_nav_4.svg',
-                    color: tabsRouter!.activeIndex == 3 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
+                    color: currentIndex == 3 ? Coolors.kCheckBoxColor : Coolors.kBottomMenuIconColor,
                   ),
                 ),
               ],
