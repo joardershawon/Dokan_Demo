@@ -11,6 +11,16 @@ import '../profilePage/profile_page.dart';
   routes: [
     AutoRoute(
       path: '/',
+      name: 'LoginPageRouter',
+      page: LoginPage,
+    ),
+    AutoRoute(
+      path: 'signup',
+      name: 'SignUpPageRouter',
+      page: SignUpPage,
+    ),
+    AutoRoute(
+      path: 'home-page',
       name: 'HomeRouter',
       page: HomePage,
       children: [
@@ -32,16 +42,7 @@ import '../profilePage/profile_page.dart';
           name: 'ProfileRouter',
           page: ProfilePage,
         ),
-        AutoRoute(
-          path: 'signup',
-          name: 'SignUpPageRouter',
-          page: SignUpPage,
-        ),
-        AutoRoute(
-          path: 'login',
-          name: 'LoginPageRouter',
-          page: LoginPage,
-        ),
+
         // AutoRoute(
         //   path: 'settings',
         //   name: 'SettingsRouter',

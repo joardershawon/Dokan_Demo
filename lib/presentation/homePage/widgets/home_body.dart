@@ -1,3 +1,6 @@
+import 'package:dokan_demo/presentation/core/widgets/orange_button.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
 import '../../core/size.dart';
 import '../../design/coolors.dart';
 import 'package:flutter/material.dart';
@@ -184,9 +187,164 @@ class FilterWidget extends StatelessWidget {
           const SizedBox(width: 10),
           const Text('Filter'),
           const Spacer(),
-          SvgPicture.asset('assets/menu_icon.svg'),
+          GestureDetector(
+            //** BOTTOM SHEET */
+            onTap: () => showMaterialModalBottomSheet(
+              enableDrag: true,
+              context: context,
+              builder: (context) => const BottomSheet1(),
+            ),
+            child: SvgPicture.asset('assets/menu_icon.svg'),
+          ),
           // const Spacer(flex: 2),
         ],
+      ),
+    );
+  }
+}
+
+class BottomSheet1 extends StatelessWidget {
+  const BottomSheet1({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color(0xffF8F8F8),
+      height: getPercentSize(50, true, context),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          const Positioned(
+            top: 20,
+            child: SizedBox(
+              width: 47,
+              child: Divider(
+                thickness: 3,
+                height: 3,
+                color: Color(0xffFFD3DD),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 40,
+            left: 10,
+            right: 10,
+            bottom: 0,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      CustomCheckBoxWithTextWidget(
+                        title: 'Newest',
+                        isSelected: true,
+                        onTap: () {},
+                      ),
+                      CustomCheckBoxWithTextWidget(
+                        title: 'Oldest',
+                        isSelected: false,
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ),
+
+                // const Spacer(),
+                CustomCancelSaveButton(
+                  buttonText1: 'Cancel',
+                  buttonText2: 'Search',
+                  onButton1Press: () {
+                    Navigator.pop(context);
+                  },
+                  onButton2Press: () {},
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomCancelSaveButton extends StatelessWidget {
+  const CustomCancelSaveButton({
+    Key? key,
+    required this.buttonText1,
+    required this.buttonText2,
+    required this.onButton1Press,
+    required this.onButton2Press,
+  }) : super(key: key);
+  final String? buttonText1, buttonText2;
+  final VoidCallback? onButton1Press, onButton2Press;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: Row(
+        children: [
+          Expanded(
+            child: OrangeButton(
+              key: UniqueKey(),
+              title: buttonText1,
+              color: Colors.white,
+              textColor: const Color(0xff818995),
+              onTap: () => onButton1Press!(),
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: OrangeButton(
+              title: buttonText2,
+              onTap: () => onButton2Press!(),
+              color: Coolors.kBottomSheetButtonColor,
+              textColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomCheckBoxWithTextWidget extends StatelessWidget {
+  const CustomCheckBoxWithTextWidget({
+    Key? key,
+    required this.title,
+    required this.isSelected,
+    required this.onTap,
+  }) : super(key: key);
+  final String? title;
+  final bool? isSelected;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: GestureDetector(
+        onTap: () => onTap!(),
+        child: Row(
+          children: [
+            Icon(
+              isSelected! ? Icons.check_box : Icons.check_box_outline_blank,
+              color: Coolors.kCheckBoxColor,
+            ),
+            const SizedBox(width: 10),
+            Text(
+              title!,
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                    color: Colors.black,
+                    fontSize: 15,
+                  ),
+            ),
+          ],
+        ),
       ),
     );
   }

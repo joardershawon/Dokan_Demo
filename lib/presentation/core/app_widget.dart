@@ -69,6 +69,22 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
+          headline4: GoogleFonts.lato(
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.w900,
+              fontSize: 25,
+              color: Coolors.kAppBarTitleTextColor,
+              letterSpacing: .14,
+            ),
+          ),
+          headline5: GoogleFonts.lato(
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 15,
+              color: Coolors.kGreyTextColor,
+              letterSpacing: .14,
+            ),
+          ),
         ),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: GoogleFonts.roboto(

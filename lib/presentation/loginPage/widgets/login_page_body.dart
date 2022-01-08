@@ -1,3 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dokan_demo/presentation/router/router.gr.dart';
+
 import '../../core/widgets/social_button_widget.dart';
 import '../../core/widgets/social_row_widget.dart';
 
@@ -7,7 +10,6 @@ import '../../core/widgets/custom_text_form_field.dart';
 import '../../core/widgets/custom_title_widget.dart';
 import '../../core/widgets/footer_text_widget.dart';
 import '../../core/widgets/orange_button.dart';
-import '../../signUpPage/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -50,6 +52,11 @@ class LoginPageBody extends StatelessWidget {
                 //TODO: Login
                 onTap: () {
                   print('LOGIN PRESSED');
+                  context.router.replaceAll(
+                    [
+                      const HomeRouter(),
+                    ],
+                  );
                 },
               ),
               // SizedBox(height: getPercentSize(5, true, context)),
@@ -57,6 +64,11 @@ class LoginPageBody extends StatelessWidget {
               FooterText(
                 text1: 'Create New Account',
                 onTap: () {
+                  context.router.replaceAll(
+                    [
+                      const SignUpPageRouter(),
+                    ],
+                  );
                   // Navigator.of(context).push(
                   //   MaterialPageRoute(
                   //     builder: (context) => const SignUpPage(),

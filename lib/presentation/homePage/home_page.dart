@@ -25,16 +25,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).backgroundColor,
-      // ignore: prefer_const_literals_to_create_immutables
       body: Stack(
         children: [
           TabBarView(
             controller: tabController,
             children: const [
               HomeBody(),
-              // LoginPage(),
-              // SignUpPage(),
               ProfilePage(),
             ],
           ),
@@ -42,11 +40,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             bottom: 0,
             left: 0,
             child: CustomBNBar(
+              currentIndex: tabController.index,
               onTap1: () => setState(() => tabController.animateTo(0)),
               onTap2: () => setState(() => tabController.animateTo(1)),
               onTap3: () => setState(() => tabController.animateTo(2)),
               onTap4: () => setState(() => tabController.animateTo(3)),
-              currentIndex: tabController.index,
             ),
           ),
         ],
