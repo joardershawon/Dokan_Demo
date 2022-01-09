@@ -1,3 +1,5 @@
+import 'package:dokan_demo/application/auth/auth_bloc.dart';
+import 'package:dokan_demo/application/auth/signup/signup_bloc.dart';
 import 'package:dokan_demo/application/product/product_bloc.dart';
 import 'package:dokan_demo/injection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,8 +16,18 @@ class MyApp extends StatelessWidget {
   final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt!<ProductBloc>()..add(const ProductEvent.started()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt!<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+        ),
+        BlocProvider(
+          create: (context) => getIt!<ProductBloc>()..add(const ProductEvent.started()),
+        ),
+        BlocProvider(
+          create: (context) => getIt!<SignupBloc>(),
+        ),
+      ],
       child: MaterialApp.router(
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),

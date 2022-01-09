@@ -30,6 +30,7 @@ dependencies:
   auto_route: ^3.2.1
   cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
@@ -37,10 +38,12 @@ dependencies:
   freezed_annotation: ^1.1.0
   get_it: ^7.2.0
   google_fonts: ^2.2.0
+  http: ^0.13.4
   injectable: ^1.5.0
   modal_bottom_sheet: ^2.0.0
   path_provider: ^2.0.8
   rxdart: ^0.27.3
+  shared_preferences: ^2.0.11
   shimmer: ^2.0.0
 
 dev_dependencies:
