@@ -7,9 +7,17 @@ class CustomTextFormField extends StatelessWidget {
     required this.prefixIcon,
     this.suffixIcon = const SizedBox.shrink(),
     this.hintText,
+    required this.onChange,
+    required this.textEditingController,
+    this.obscureText = false,
+    this.textInputAction = TextInputAction.next,
   }) : super(key: key);
   final Widget? prefixIcon, suffixIcon;
   final String? hintText;
+  final Function(String v)? onChange;
+  final TextEditingController? textEditingController;
+  final bool? obscureText;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +31,11 @@ class CustomTextFormField extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(5.0),
           child: TextFormField(
+            textInputAction: textInputAction,
+            obscureText: obscureText!,
+            controller: textEditingController,
+            onChanged: (value) => onChange!(value),
+            onSaved: (newValue) {},
             cursorColor: Coolors.kOrangeColor,
             decoration: InputDecoration(
               border: InputBorder.none,

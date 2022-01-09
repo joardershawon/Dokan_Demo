@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate(
             [
-              SizedBox(height: getPercentSize(8, true, context)),
+              SizedBox(height: getPercentSize(5, true, context)),
               Text(
                 'My Account',
                 textAlign: TextAlign.center,
@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: getPercentSize(5, true, context)),
+              SizedBox(height: getPercentSize(3, true, context)),
               Column(
                 children: [
                   Text(
@@ -63,6 +63,7 @@ class ProfilePage extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate(
             [
+              SizedBox(height: getPercentSize(5, true, context)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Material(

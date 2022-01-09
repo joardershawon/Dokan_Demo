@@ -20,6 +20,8 @@ class LoginPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -37,6 +39,8 @@ class LoginPageBody extends StatelessWidget {
                 hintText: 'Email',
                 prefixIcon: SvgPicture.asset('assets/email_icon.svg'),
                 suffixIcon: const SizedBox.shrink(),
+                textEditingController: emailController,
+                onChange: (String v) {},
               ),
               CustomTextFormField(
                 hintText: 'Password',
@@ -44,6 +48,8 @@ class LoginPageBody extends StatelessWidget {
                 suffixIcon: const Icon(
                   Icons.remove_red_eye_sharp,
                 ),
+                onChange: (String v) {},
+                textEditingController: passwordController,
               ),
               const ForgotPasswordWidget(),
               SizedBox(height: getPercentSize(8, false, context)),

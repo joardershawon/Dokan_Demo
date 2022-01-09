@@ -17,6 +17,10 @@ class SignUpBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController = TextEditingController();
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -30,20 +34,34 @@ class SignUpBody extends StatelessWidget {
               CustomTextFormField(
                 hintText: 'Name',
                 prefixIcon: SvgPicture.asset('assets/person_icon.svg'),
+                onChange: (String v) {
+                  print(v);
+                },
+                textEditingController: nameController,
               ),
               CustomTextFormField(
                 hintText: 'Email',
                 prefixIcon: SvgPicture.asset('assets/email_icon.svg'),
+                onChange: (String v) {},
+                textEditingController: emailController,
               ),
               CustomTextFormField(
+                obscureText: true,
                 hintText: 'Password',
                 prefixIcon: SvgPicture.asset('assets/password_icon.svg'),
+                onChange: (String v) {},
+                textEditingController: passwordController,
               ),
               CustomTextFormField(
+                textInputAction: TextInputAction.done,
+                obscureText: true,
                 hintText: 'Confirm Password',
                 prefixIcon: SvgPicture.asset('assets/password_icon.svg'),
+                onChange: (String v) {},
+                textEditingController: confirmPasswordController,
               ),
-              SizedBox(height: getPercentSize(10, true, context)),
+              SizedBox(height: getPercentSize(5, true, context)),
+              //TODO: SIGN UP
               OrangeButton(
                 title: 'Sign Up',
                 onTap: () {
@@ -52,7 +70,6 @@ class SignUpBody extends StatelessWidget {
                       const LoginPageRouter(),
                     ],
                   );
-                  //TODO: SIGN UP
                 },
               ),
               const SocialRowWidget(),
