@@ -21,7 +21,7 @@ class User {
   final String? name;
   final String? firstName;
   final String? lastName;
-  final String? email;
+  String? email;
   final String? url;
   final String? description;
   final String? link;

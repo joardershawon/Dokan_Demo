@@ -60,25 +60,34 @@ class _HomeBodyState extends State<HomeBody> {
                   height: getPercentSize(5, true, context),
                 ),
               ),
-              SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: itemWidth / itemHeight,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return ProductCardWidget(
-                      title: state.products![index].name,
-                      price: state.products![index].price.toString(),
-                      regularPrice: state.products![index].regularPrice.toString(),
-                      imgUrl: state.products![index].images!.first.src,
-                    );
-                  },
-                  childCount: state.products!.length,
-                ),
-              ),
+              state.products!.isEmpty
+                  ? const SliverToBoxAdapter(
+                      child: SizedBox(
+                        child: Text(
+                          'Nothing Found',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )
+                  : SliverGrid(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: itemWidth / itemHeight,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                      ),
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          return ProductCardWidget(
+                            title: state.products![index].name,
+                            price: state.products![index].price.toString(),
+                            regularPrice: state.products![index].regularPrice.toString(),
+                            imgUrl: state.products![index].images!.first.src,
+                          );
+                        },
+                        childCount: state.products!.length,
+                      ),
+                    ),
               SliverToBoxAdapter(
                 child: SizedBox(
                   height: getPercentSize(8, true, context),

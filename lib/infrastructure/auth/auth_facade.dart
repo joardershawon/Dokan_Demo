@@ -58,6 +58,7 @@ class AuthFacade implements IAuthFacade {
     if (res['token'] != null) {
       print(res['token']);
       await setToken(res['token']);
+      await setEmail(res['user_email']);
       return const Right(unit);
     } else {
       return Left(
@@ -72,6 +73,7 @@ class AuthFacade implements IAuthFacade {
   Future<Either<AuthFailure, User>> getUser() async {
     const path = ApiPath.userUrl;
     final token = await getToken();
+    final email = await getEmail();
 
     if (!token.contains('not found')) {
       final res = await http.get(Uri.parse(path), headers: {
@@ -82,8 +84,8 @@ class AuthFacade implements IAuthFacade {
       );
 
       if (res['code'] == null) {
-        final x = User.fromJson(res);
-        print(x);
+        var x = User.fromJson(res);
+        x.email = email;
         return Right(x);
       } else {
         return Left(AuthFailure.serverError(errorText: res["message"]));
