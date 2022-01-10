@@ -1,5 +1,6 @@
 import 'package:dokan_demo/application/product/product_bloc.dart';
 import 'package:dokan_demo/domain/product/i_product_repository.dart';
+import 'package:dokan_demo/presentation/core/widgets/custom_network_image.dart';
 import 'package:dokan_demo/presentation/core/widgets/orange_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -122,13 +123,11 @@ class ProductCardWidget extends StatelessWidget {
             flex: 4,
             child: Container(
               color: Coolors.kGradient1Color,
-              //TODO: image url
-
-              // child: CustomNetworkImage(
-              //   imageUrl: imgUrl,
-              //   height: 50,
-              //   width: 50,
-              // ),
+              child: CustomNetworkImage(
+                imageUrl: imgUrl,
+                height: 50,
+                width: 50,
+              ),
             ),
           ),
           Expanded(

@@ -16,6 +16,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     this._iProductRepository,
   ) : super(ProductState.initial()) {
     List<Product> x = [];
+    List<Product> y = [];
     on<_Started>(
       (event, emit) async {
         emit(
@@ -29,6 +30,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             products: x,
           ),
         );
+        y = x;
       },
     );
     on<_FilterPressed>(
@@ -43,7 +45,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     );
     on<_SubmitPressed>(
       (event, emit) {
-        List<Product> y = [];
         y = x;
 
         if (y.isNotEmpty) {

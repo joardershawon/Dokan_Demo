@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dokan_demo/infrastructure/auth/helper/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -8,6 +9,7 @@ class CustomNetworkImage extends StatelessWidget {
   final double? height;
   final double? width;
   final BoxFit? fit;
+  final String? token;
 
   const CustomNetworkImage({
     Key? key,
@@ -16,12 +18,14 @@ class CustomNetworkImage extends StatelessWidget {
     @required this.width,
     this.hasShadow = false,
     this.fit = BoxFit.cover,
+    this.token,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: imageUrl ?? '',
+      // httpHeaders: {"Authorization": "Bearer $token"},
       // height: height,
       // width: width,
       fit: BoxFit.cover,
@@ -29,7 +33,7 @@ class CustomNetworkImage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,
-            fit: fit ?? BoxFit.cover,
+            fit: fit ?? BoxFit.contain,
           ),
         ),
       ),

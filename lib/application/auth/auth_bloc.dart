@@ -12,13 +12,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(const AuthState.unAuthenticated()) {
     on<_AuthCheckRequested>(
       (event, emit) async {
-        final x = await getToken();
+        // final x = await getToken();
 
-        if (x.contains('not found')) {
-          emit(const AuthState.unAuthenticated());
-        } else {
-          emit(const AuthState.authenticated());
-        }
+        // if (x.contains('not found')) {
+        //   emit(const AuthState.unAuthenticated());
+        // } else {
+        //   emit(const AuthState.authenticated());
+        // }
       },
     );
   }
