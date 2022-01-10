@@ -303,15 +303,20 @@ class AccountExpansionItems extends StatelessWidget {
                 onChange: (String v) {},
                 textEditingController: null,
               ),
-              CustomCancelSaveButton(
-                buttonText1: 'Cancel',
-                buttonText2: 'Save',
-                onButton1Press: () {},
-                onButton2Press: () {
-                  BlocProvider.of<SignupBloc>(context).add(const SignupEvent.postUserChangedName());
-                  // state.showError!?null: ;
-                },
-              ),
+              state.isLoading!
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.orange,
+                      ),
+                    )
+                  : CustomCancelSaveButton(
+                      buttonText1: 'Cancel',
+                      buttonText2: 'Save',
+                      onButton1Press: () {},
+                      onButton2Press: () {
+                        BlocProvider.of<SignupBloc>(context).add(const SignupEvent.postUserChangedName());
+                      },
+                    ),
             ],
           ),
         );
