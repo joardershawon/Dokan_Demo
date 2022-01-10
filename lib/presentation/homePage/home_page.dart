@@ -1,3 +1,4 @@
+import 'package:dokan_demo/presentation/blank/empty_scaffold.dart';
 import 'package:dokan_demo/presentation/homePage/widgets/home_body.dart';
 import 'package:dokan_demo/presentation/profilePage/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   late TabController tabController = TabController(
-    length: 2,
+    length: 4,
     vsync: this,
   );
   @override
@@ -33,6 +34,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             controller: tabController,
             children: const [
               HomeBody(),
+              EmptyScaffold(),
+              EmptyScaffold(),
               ProfilePage(),
             ],
           ),
