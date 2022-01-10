@@ -12,9 +12,9 @@ part 'signup_state.dart';
 
 @injectable
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  final IAuthFacade iAuthFacade;
+  final IAuthFacade _iAuthFacade;
   SignupBloc(
-    this.iAuthFacade,
+    this._iAuthFacade,
   ) : super(SignupState.initial()) {
     on<_NameChanged>(
       (event, emit) {
@@ -77,10 +77,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     on<_RegisterWithCredentials>(
       (event, emit) async {
         bool isFormEmpty = state.showError! ||
-            state.email!.isEmpty ||
-            state.password!.isEmpty ||
-            state.name!.isEmpty ||
-            state.confirmPassword!.isEmpty;
+            state.email == null ||
+            state.password == null ||
+            state.name == null ||
+            state.confirmPassword == null;
 
         emit(
           state.copyWith(
@@ -99,7 +99,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             ),
           );
         } else {
-          var x = await iAuthFacade.registerUser(
+          var x = await _iAuthFacade.registerUser(
             username: state.name,
             email: state.email,
             password: state.password,
@@ -115,7 +115,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     );
     on<_LoginWithCredentials>(
       (event, emit) async {
-        bool isFormEmpty = state.showError! || state.email!.isEmpty || state.password!.isEmpty;
+        bool isFormEmpty = state.showError! || state.email == null || state.password == null;
         emit(
           state.copyWith(
             isLoading: true,
@@ -133,7 +133,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             ),
           );
         } else {
-          var x = await iAuthFacade.loginUser(
+          var x = await _iAuthFacade.loginUser(
             email: state.email,
             password: state.password,
           );
@@ -144,6 +144,123 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             ),
           );
         }
+      },
+    );
+    on<_GetUserCredentials>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            isLoading: true,
+            showError: false,
+          ),
+        );
+        final x = await _iAuthFacade.getUser();
+        x.fold(
+          (l) => emit(
+            state.copyWith(
+              showError: true,
+              isLoading: false,
+            ),
+          ),
+          (r) => emit(
+            state.copyWith(
+              showError: false,
+              isLoading: false,
+              firstName: r.firstName,
+              lastName: r.lastName,
+              email: r.email,
+              name: r.name,
+            ),
+          ),
+        );
+      },
+    );
+    on<_FirstNameChanged>(
+      (event, emit) {
+        emit(
+          state.copyWith(
+            firstName: event.firstName,
+            showError: false,
+            isLoading: false,
+            authFailureOrSuccess: none(),
+          ),
+        );
+      },
+    );
+    on<_LastNameChanged>(
+      (event, emit) {
+        emit(
+          state.copyWith(
+            lastName: event.lastName,
+            showError: false,
+            isLoading: false,
+            authFailureOrSuccess: none(),
+          ),
+        );
+      },
+    );
+    on<_PostUserChangedName>(
+      (event, emit) async {
+        bool isFormEmpty = state.showError! || state.firstName == null || state.lastName == null;
+        emit(
+          state.copyWith(
+            isLoading: true,
+            showError: false,
+            authFailureOrSuccess: none(),
+          ),
+        );
+
+        if (isFormEmpty) {
+          emit(
+            state.copyWith(
+              showError: true,
+              isLoading: false,
+              authFailureOrSuccess: none(),
+            ),
+          );
+        } else {
+          emit(
+            state.copyWith(
+              showError: false,
+              isLoading: true,
+            ),
+          );
+          var x = await _iAuthFacade.postChangedName(
+            firstName: state.firstName,
+            lastName: state.lastName,
+          );
+          x.fold(
+            (l) => emit(
+              state.copyWith(
+                showError: true,
+                isLoading: false,
+              ),
+            ),
+            (r) => emit(
+              state.copyWith(
+                showError: false,
+                isLoading: false,
+                isExpanded: !state.isExpanded!,
+                name: r.name,
+                firstName: r.firstName,
+                lastName: r.lastName,
+                email: r.email,
+              ),
+            ),
+          );
+        }
+      },
+    );
+    on<_ExpansionChanged>(
+      (event, emit) {
+        emit(
+          state.copyWith(
+            showError: false,
+            isLoading: false,
+            isExpanded: !state.isExpanded!,
+            panelIndex: event.index,
+          ),
+        );
       },
     );
   }

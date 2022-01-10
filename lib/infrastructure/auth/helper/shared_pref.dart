@@ -16,13 +16,16 @@ Future<String> getToken() async {
   return x;
 }
 
-Future<void> setUserName(String value) async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.setString('username', value);
-}
+// Future<void> setUserName(String username, String email, String nicename) async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   prefs.setString(
+//     'username',
+//     username,
+//   );
+// }
 
-Future<String> getUserName() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  final x = prefs.getString('username') ?? 'not found';
-  return x;
-}
+// Future<String> getUserName() async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   final x = prefs.getString('username') ?? 'not found';
+//   return x;
+// }
