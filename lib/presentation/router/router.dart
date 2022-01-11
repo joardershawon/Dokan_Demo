@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dokan_demo/presentation/blank/empty_scaffold.dart';
-import 'package:dokan_demo/presentation/loginPage/login_page.dart';
-import 'package:dokan_demo/presentation/signUpPage/sign_up_page.dart';
+import '../blank/empty_scaffold.dart';
+import '../loginPage/login_page.dart';
+import '../signUpPage/sign_up_page.dart';
 import '../homePage/home_page.dart';
 import '../homePage/widgets/home_body.dart';
 import '../profilePage/profile_page.dart';

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:dokan_demo/domain/auth/auth_failure.dart';
-import 'package:dokan_demo/domain/user/user.dart';
+import 'auth_failure.dart';
+import '../user/user.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerUser({

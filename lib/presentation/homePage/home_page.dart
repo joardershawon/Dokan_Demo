@@ -1,6 +1,6 @@
-import 'package:dokan_demo/presentation/blank/empty_scaffold.dart';
-import 'package:dokan_demo/presentation/homePage/widgets/home_body.dart';
-import 'package:dokan_demo/presentation/profilePage/profile_page.dart';
+import '../blank/empty_scaffold.dart';
+import 'widgets/home_body.dart';
+import '../profilePage/profile_page.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/custom_floating_button.dart';

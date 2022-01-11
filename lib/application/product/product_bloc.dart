@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dokan_demo/domain/product/i_product_repository.dart';
-import 'package:dokan_demo/infrastructure/product/product_dto.dart';
+import '../../domain/product/i_product_repository.dart';
+import '../../infrastructure/product/product_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

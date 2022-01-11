@@ -3,8 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:dokan_demo/domain/auth/auth_failure.dart';
-import 'package:dokan_demo/domain/auth/i_auth_facade.dart';
+import '../../../domain/auth/auth_failure.dart';
+import '../../../domain/auth/i_auth_facade.dart';
 
 part 'signup_bloc.freezed.dart';
 part 'signup_event.dart';

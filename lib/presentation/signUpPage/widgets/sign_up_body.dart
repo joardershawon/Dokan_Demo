@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dokan_demo/presentation/core/widgets/custom_snack_bar.dart';
-import 'package:dokan_demo/presentation/router/router.gr.dart';
+import '../../core/widgets/custom_snack_bar.dart';
+import '../../router/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:dokan_demo/application/auth/signup/signup_bloc.dart';
-import 'package:dokan_demo/presentation/core/size.dart';
-import 'package:dokan_demo/presentation/core/widgets/custom_text_form_field.dart';
-import 'package:dokan_demo/presentation/core/widgets/footer_text_widget.dart';
-import 'package:dokan_demo/presentation/core/widgets/orange_button.dart';
-import 'package:dokan_demo/presentation/core/widgets/social_row_widget.dart';
-import 'package:dokan_demo/presentation/design/coolors.dart';
+import '../../../application/auth/signup/signup_bloc.dart';
+import '../../core/size.dart';
+import '../../core/widgets/custom_text_form_field.dart';
+import '../../core/widgets/footer_text_widget.dart';
+import '../../core/widgets/orange_button.dart';
+import '../../core/widgets/social_row_widget.dart';
+import '../../design/coolors.dart';
 
 import '../sign_up_page.dart';
 

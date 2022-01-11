@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:dokan_demo/domain/user/user.dart';
+import '../../domain/user/user.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:dokan_demo/domain/auth/auth_failure.dart';
+import '../../domain/auth/auth_failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dokan_demo/domain/auth/i_auth_facade.dart';
-import 'package:dokan_demo/infrastructure/core/api_path.dart';
+import '../../domain/auth/i_auth_facade.dart';
+import '../core/api_path.dart';
 import 'package:injectable/injectable.dart';
 
 import 'helper/shared_pref.dart';

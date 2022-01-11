@@ -1,4 +1,4 @@
-import 'package:dokan_demo/presentation/design/coolors.dart';
+import '../../design/coolors.dart';
 import '../../core/size.dart';
 import '../../design/custom_paint_1.dart';
 import 'package:flutter/material.dart';

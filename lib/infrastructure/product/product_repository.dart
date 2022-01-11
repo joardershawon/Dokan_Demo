@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:dokan_demo/domain/product/i_product_repository.dart';
-import 'package:dokan_demo/infrastructure/product/product_dto.dart';
+import '../../domain/product/i_product_repository.dart';
+import 'product_dto.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 

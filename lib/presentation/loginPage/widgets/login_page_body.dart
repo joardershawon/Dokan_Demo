@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:dokan_demo/application/auth/signup/signup_bloc.dart';
-import 'package:dokan_demo/presentation/core/widgets/custom_snack_bar.dart';
-import 'package:dokan_demo/presentation/design/coolors.dart';
-import 'package:dokan_demo/presentation/router/router.gr.dart';
+import '../../../application/auth/signup/signup_bloc.dart';
+import '../../core/widgets/custom_snack_bar.dart';
+import '../../design/coolors.dart';
+import '../../router/router.gr.dart';
 
 import '../../core/size.dart';
 import '../../core/widgets/custom_forgot_password.dart';
@@ -46,11 +46,6 @@ class LoginPageBody extends StatelessWidget {
                   const HomeRouter(),
                 ],
               );
-              // replaceAll(
-              //   [
-              //     const LoginPageRouter(),
-              //   ],
-              // )
             },
           ),
         );
@@ -75,9 +70,7 @@ class LoginPageBody extends StatelessWidget {
                     prefixIcon: SvgPicture.asset('assets/email_icon.svg'),
                     suffixIcon: const SizedBox.shrink(),
                     textEditingController: emailController,
-                    onChange: (String v) {
-                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.emailChanged(email: v));
-                    },
+                    onChange: (String v) {},
                   ),
                   CustomTextFormField(
                     key: UniqueKey(),
@@ -87,9 +80,7 @@ class LoginPageBody extends StatelessWidget {
                     suffixIcon: const Icon(
                       Icons.remove_red_eye_sharp,
                     ),
-                    onChange: (String v) {
-                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.passwordChanged(password: v));
-                    },
+                    onChange: (String v) {},
                     textEditingController: passwordController,
                   ),
                   const ForgotPasswordWidget(),
@@ -100,7 +91,6 @@ class LoginPageBody extends StatelessWidget {
                           key: UniqueKey(),
                           title: 'Login',
                           onTap: () {
-                            //**!.................... LOGIN ....................*/
                             BlocProvider.of<SignupBloc>(context).add(
                               SignupEvent.loginWithCredentials(
                                 email: emailController.text,
@@ -109,7 +99,6 @@ class LoginPageBody extends StatelessWidget {
                             );
                           },
                         ),
-                  // SizedBox(height: getPercentSize(5, true, context)),
                   const SocialRowWidget(),
                   FooterText(
                     text1: 'Create New Account',
@@ -119,27 +108,8 @@ class LoginPageBody extends StatelessWidget {
                           const SignUpPageRouter(),
                         ],
                       );
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const SignUpPage(),
-                      //   ),
-                      // );
                     },
                   ),
-                  // FooterText(
-                  //   text: GestureDetector(
-                  //     onTap: () => Navigator.of(context).push(
-                  //       MaterialPageRoute(
-                  //         builder: (context) => const SignUpPage(),
-                  //       ),
-                  //     ),
-                  //     child: Text(
-                  //       'Create New Account',
-                  //       style: Theme.of(context).textTheme.headline3,
-                  //       textAlign: TextAlign.center,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

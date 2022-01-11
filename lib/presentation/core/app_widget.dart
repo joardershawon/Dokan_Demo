@@ -1,7 +1,6 @@
-import 'package:dokan_demo/application/auth/auth_bloc.dart';
-import 'package:dokan_demo/application/auth/signup/signup_bloc.dart';
-import 'package:dokan_demo/application/product/product_bloc.dart';
-import 'package:dokan_demo/injection.dart';
+import '../../application/auth/signup/signup_bloc.dart';
+import '../../application/product/product_bloc.dart';
+import '../../injection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../router/router.gr.dart';
@@ -18,9 +17,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => getIt!<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
-        ),
         BlocProvider(
           create: (context) => getIt!<ProductBloc>()..add(const ProductEvent.started()),
         ),

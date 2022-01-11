@@ -1,4 +1,4 @@
-import 'package:dokan_demo/presentation/design/coolors.dart';
+import '../../design/coolors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
