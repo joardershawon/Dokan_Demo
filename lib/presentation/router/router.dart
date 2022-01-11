@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dokan_demo/presentation/blank/empty_scaffold.dart';
 import 'package:dokan_demo/presentation/loginPage/login_page.dart';
 import 'package:dokan_demo/presentation/signUpPage/sign_up_page.dart';
 import '../homePage/home_page.dart';
@@ -38,21 +39,15 @@ import '../profilePage/profile_page.dart';
         ),
         //** BOTTOM ITEMS ROUTE */
         AutoRoute(
+          path: 'empty-scaffold',
+          name: 'EmptyScaffoldRouter',
+          page: EmptyScaffold,
+        ),
+        AutoRoute(
           path: 'profile',
           name: 'ProfileRouter',
           page: ProfilePage,
         ),
-
-        // AutoRoute(
-        //   path: 'settings',
-        //   name: 'SettingsRouter',
-        //   page: SettingsPage,
-        // ),
-        // AutoRoute(
-        //   path: 'profile',
-        //   name: 'profileRouter',
-        //   page: RegistrationPage,
-        // ),
       ],
     ),
     //** FULL PAGE ROUTES */

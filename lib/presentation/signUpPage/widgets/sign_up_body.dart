@@ -67,7 +67,7 @@ class SignUpBody extends StatelessWidget {
                     hintText: 'Name',
                     prefixIcon: SvgPicture.asset('assets/person_icon.svg'),
                     onChange: (String v) {
-                      BlocProvider.of<SignupBloc>(context).add(SignupEvent.nameChanged(name: v));
+                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.nameChanged(name: v));
                     },
                     textEditingController: nameController,
                   ),
@@ -76,7 +76,7 @@ class SignUpBody extends StatelessWidget {
                     hintText: 'Email',
                     prefixIcon: SvgPicture.asset('assets/email_icon.svg'),
                     onChange: (String v) {
-                      BlocProvider.of<SignupBloc>(context).add(SignupEvent.emailChanged(email: v));
+                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.emailChanged(email: v));
                     },
                     textEditingController: emailController,
                   ),
@@ -85,7 +85,7 @@ class SignUpBody extends StatelessWidget {
                     hintText: 'Password',
                     prefixIcon: SvgPicture.asset('assets/password_icon.svg'),
                     onChange: (String v) {
-                      BlocProvider.of<SignupBloc>(context).add(SignupEvent.passwordChanged(password: v));
+                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.passwordChanged(password: v));
                     },
                     textEditingController: passwordController,
                   ),
@@ -95,27 +95,39 @@ class SignUpBody extends StatelessWidget {
                     hintText: 'Confirm Password',
                     prefixIcon: SvgPicture.asset('assets/password_icon.svg'),
                     onChange: (String v) {
-                      BlocProvider.of<SignupBloc>(context).add(SignupEvent.confirmPasswordChanged(confirmPassword: v));
+                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.confirmPasswordChanged(confirmPassword: v));
                     },
                     textEditingController: confirmPasswordController,
                   ),
                   SizedBox(height: getPercentSize(5, true, context)),
-                  //TODO: SIGN UP
                   state.isLoading!
-                      ? const CircularProgressIndicator(
+                      ? CircularProgressIndicator(
+                          key: UniqueKey(),
                           color: Coolors.kOrangeColor,
                         )
                       : OrangeButton(
                           title: 'Sign Up',
                           onTap: () {
-                            BlocProvider.of<SignupBloc>(context).add(const SignupEvent.registerWithCredentials());
+                            BlocProvider.of<SignupBloc>(context).add(
+                              SignupEvent.registerWithCredentials(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  confirmPassword: confirmPasswordController.text),
+                            );
                           },
                         ),
                   const SocialRowWidget(),
                   FooterText(
                     text1: 'Already have an account?',
                     text2: '  Login',
-                    onTap: () {},
+                    onTap: () {
+                      context.router.replaceAll(
+                        [
+                          const LoginPageRouter(),
+                        ],
+                      );
+                    },
                   ),
                 ],
               ),

@@ -7,6 +7,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: UniqueKey(),
       backgroundColor: Theme.of(context).backgroundColor,
       body: const LoginPageBody(),
     );

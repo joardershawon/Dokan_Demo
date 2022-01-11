@@ -17,57 +17,37 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SignupEventTearOff {
   const _$SignupEventTearOff();
 
-  _NameChanged nameChanged({required String? name}) {
-    return _NameChanged(
+  _RegisterWithCredentials registerWithCredentials(
+      {required String? name,
+      required String? email,
+      required String? password,
+      required String? confirmPassword}) {
+    return _RegisterWithCredentials(
       name: name,
-    );
-  }
-
-  _FirstNameChanged firstNameChanged({required String? firstName}) {
-    return _FirstNameChanged(
-      firstName: firstName,
-    );
-  }
-
-  _LastNameChanged lastNameChanged({required String? lastName}) {
-    return _LastNameChanged(
-      lastName: lastName,
-    );
-  }
-
-  _EmailChanged emailChanged({required String? email}) {
-    return _EmailChanged(
       email: email,
-    );
-  }
-
-  _PasswordChanged passwordChanged({required String? password}) {
-    return _PasswordChanged(
       password: password,
-    );
-  }
-
-  _ConfirmPasswordChanged confirmPasswordChanged(
-      {required String? confirmPassword}) {
-    return _ConfirmPasswordChanged(
       confirmPassword: confirmPassword,
     );
   }
 
-  _RegisterWithCredentials registerWithCredentials() {
-    return const _RegisterWithCredentials();
-  }
-
-  _LoginWithCredentials loginWithCredentials() {
-    return const _LoginWithCredentials();
+  _LoginWithCredentials loginWithCredentials(
+      {required String? email, required String? password}) {
+    return _LoginWithCredentials(
+      email: email,
+      password: password,
+    );
   }
 
   _GetUserCredentials getUserCredentials() {
     return const _GetUserCredentials();
   }
 
-  _PostUserChangedName postUserChangedName() {
-    return const _PostUserChangedName();
+  _PostUserChangedName postUserChangedName(
+      {required String? firstName, required String? lastName}) {
+    return _PostUserChangedName(
+      firstName: firstName,
+      lastName: lastName,
+    );
   }
 
   _ExpansionChanged expansionChanged({required int? index}) {
@@ -84,59 +64,42 @@ const $SignupEvent = _$SignupEventTearOff();
 mixin _$SignupEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
     required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
     required TResult Function(int? index) expansionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
     required TResult Function(_RegisterWithCredentials value)
         registerWithCredentials,
     required TResult Function(_LoginWithCredentials value) loginWithCredentials,
@@ -147,12 +110,6 @@ mixin _$SignupEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -162,12 +119,6 @@ mixin _$SignupEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -195,1154 +146,12 @@ class _$SignupEventCopyWithImpl<$Res> implements $SignupEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NameChangedCopyWith<$Res> {
-  factory _$NameChangedCopyWith(
-          _NameChanged value, $Res Function(_NameChanged) then) =
-      __$NameChangedCopyWithImpl<$Res>;
-  $Res call({String? name});
-}
-
-/// @nodoc
-class __$NameChangedCopyWithImpl<$Res> extends _$SignupEventCopyWithImpl<$Res>
-    implements _$NameChangedCopyWith<$Res> {
-  __$NameChangedCopyWithImpl(
-      _NameChanged _value, $Res Function(_NameChanged) _then)
-      : super(_value, (v) => _then(v as _NameChanged));
-
-  @override
-  _NameChanged get _value => super._value as _NameChanged;
-
-  @override
-  $Res call({
-    Object? name = freezed,
-  }) {
-    return _then(_NameChanged(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_NameChanged implements _NameChanged {
-  const _$_NameChanged({required this.name});
-
-  @override
-  final String? name;
-
-  @override
-  String toString() {
-    return 'SignupEvent.nameChanged(name: $name)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _NameChanged &&
-            const DeepCollectionEquality().equals(other.name, name));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
-
-  @JsonKey(ignore: true)
-  @override
-  _$NameChangedCopyWith<_NameChanged> get copyWith =>
-      __$NameChangedCopyWithImpl<_NameChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
-    required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
-    required TResult Function(int? index) expansionChanged,
-  }) {
-    return nameChanged(name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-  }) {
-    return nameChanged?.call(name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (nameChanged != null) {
-      return nameChanged(name);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
-    required TResult Function(_RegisterWithCredentials value)
-        registerWithCredentials,
-    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
-    required TResult Function(_GetUserCredentials value) getUserCredentials,
-    required TResult Function(_PostUserChangedName value) postUserChangedName,
-    required TResult Function(_ExpansionChanged value) expansionChanged,
-  }) {
-    return nameChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-  }) {
-    return nameChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (nameChanged != null) {
-      return nameChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NameChanged implements SignupEvent {
-  const factory _NameChanged({required String? name}) = _$_NameChanged;
-
-  String? get name;
-  @JsonKey(ignore: true)
-  _$NameChangedCopyWith<_NameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$FirstNameChangedCopyWith<$Res> {
-  factory _$FirstNameChangedCopyWith(
-          _FirstNameChanged value, $Res Function(_FirstNameChanged) then) =
-      __$FirstNameChangedCopyWithImpl<$Res>;
-  $Res call({String? firstName});
-}
-
-/// @nodoc
-class __$FirstNameChangedCopyWithImpl<$Res>
-    extends _$SignupEventCopyWithImpl<$Res>
-    implements _$FirstNameChangedCopyWith<$Res> {
-  __$FirstNameChangedCopyWithImpl(
-      _FirstNameChanged _value, $Res Function(_FirstNameChanged) _then)
-      : super(_value, (v) => _then(v as _FirstNameChanged));
-
-  @override
-  _FirstNameChanged get _value => super._value as _FirstNameChanged;
-
-  @override
-  $Res call({
-    Object? firstName = freezed,
-  }) {
-    return _then(_FirstNameChanged(
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_FirstNameChanged implements _FirstNameChanged {
-  const _$_FirstNameChanged({required this.firstName});
-
-  @override
-  final String? firstName;
-
-  @override
-  String toString() {
-    return 'SignupEvent.firstNameChanged(firstName: $firstName)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _FirstNameChanged &&
-            const DeepCollectionEquality().equals(other.firstName, firstName));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(firstName));
-
-  @JsonKey(ignore: true)
-  @override
-  _$FirstNameChangedCopyWith<_FirstNameChanged> get copyWith =>
-      __$FirstNameChangedCopyWithImpl<_FirstNameChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
-    required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
-    required TResult Function(int? index) expansionChanged,
-  }) {
-    return firstNameChanged(firstName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-  }) {
-    return firstNameChanged?.call(firstName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (firstNameChanged != null) {
-      return firstNameChanged(firstName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
-    required TResult Function(_RegisterWithCredentials value)
-        registerWithCredentials,
-    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
-    required TResult Function(_GetUserCredentials value) getUserCredentials,
-    required TResult Function(_PostUserChangedName value) postUserChangedName,
-    required TResult Function(_ExpansionChanged value) expansionChanged,
-  }) {
-    return firstNameChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-  }) {
-    return firstNameChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (firstNameChanged != null) {
-      return firstNameChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FirstNameChanged implements SignupEvent {
-  const factory _FirstNameChanged({required String? firstName}) =
-      _$_FirstNameChanged;
-
-  String? get firstName;
-  @JsonKey(ignore: true)
-  _$FirstNameChangedCopyWith<_FirstNameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$LastNameChangedCopyWith<$Res> {
-  factory _$LastNameChangedCopyWith(
-          _LastNameChanged value, $Res Function(_LastNameChanged) then) =
-      __$LastNameChangedCopyWithImpl<$Res>;
-  $Res call({String? lastName});
-}
-
-/// @nodoc
-class __$LastNameChangedCopyWithImpl<$Res>
-    extends _$SignupEventCopyWithImpl<$Res>
-    implements _$LastNameChangedCopyWith<$Res> {
-  __$LastNameChangedCopyWithImpl(
-      _LastNameChanged _value, $Res Function(_LastNameChanged) _then)
-      : super(_value, (v) => _then(v as _LastNameChanged));
-
-  @override
-  _LastNameChanged get _value => super._value as _LastNameChanged;
-
-  @override
-  $Res call({
-    Object? lastName = freezed,
-  }) {
-    return _then(_LastNameChanged(
-      lastName: lastName == freezed
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_LastNameChanged implements _LastNameChanged {
-  const _$_LastNameChanged({required this.lastName});
-
-  @override
-  final String? lastName;
-
-  @override
-  String toString() {
-    return 'SignupEvent.lastNameChanged(lastName: $lastName)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _LastNameChanged &&
-            const DeepCollectionEquality().equals(other.lastName, lastName));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(lastName));
-
-  @JsonKey(ignore: true)
-  @override
-  _$LastNameChangedCopyWith<_LastNameChanged> get copyWith =>
-      __$LastNameChangedCopyWithImpl<_LastNameChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
-    required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
-    required TResult Function(int? index) expansionChanged,
-  }) {
-    return lastNameChanged(lastName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-  }) {
-    return lastNameChanged?.call(lastName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (lastNameChanged != null) {
-      return lastNameChanged(lastName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
-    required TResult Function(_RegisterWithCredentials value)
-        registerWithCredentials,
-    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
-    required TResult Function(_GetUserCredentials value) getUserCredentials,
-    required TResult Function(_PostUserChangedName value) postUserChangedName,
-    required TResult Function(_ExpansionChanged value) expansionChanged,
-  }) {
-    return lastNameChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-  }) {
-    return lastNameChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (lastNameChanged != null) {
-      return lastNameChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LastNameChanged implements SignupEvent {
-  const factory _LastNameChanged({required String? lastName}) =
-      _$_LastNameChanged;
-
-  String? get lastName;
-  @JsonKey(ignore: true)
-  _$LastNameChangedCopyWith<_LastNameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$EmailChangedCopyWith<$Res> {
-  factory _$EmailChangedCopyWith(
-          _EmailChanged value, $Res Function(_EmailChanged) then) =
-      __$EmailChangedCopyWithImpl<$Res>;
-  $Res call({String? email});
-}
-
-/// @nodoc
-class __$EmailChangedCopyWithImpl<$Res> extends _$SignupEventCopyWithImpl<$Res>
-    implements _$EmailChangedCopyWith<$Res> {
-  __$EmailChangedCopyWithImpl(
-      _EmailChanged _value, $Res Function(_EmailChanged) _then)
-      : super(_value, (v) => _then(v as _EmailChanged));
-
-  @override
-  _EmailChanged get _value => super._value as _EmailChanged;
-
-  @override
-  $Res call({
-    Object? email = freezed,
-  }) {
-    return _then(_EmailChanged(
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_EmailChanged implements _EmailChanged {
-  const _$_EmailChanged({required this.email});
-
-  @override
-  final String? email;
-
-  @override
-  String toString() {
-    return 'SignupEvent.emailChanged(email: $email)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _EmailChanged &&
-            const DeepCollectionEquality().equals(other.email, email));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(email));
-
-  @JsonKey(ignore: true)
-  @override
-  _$EmailChangedCopyWith<_EmailChanged> get copyWith =>
-      __$EmailChangedCopyWithImpl<_EmailChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
-    required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
-    required TResult Function(int? index) expansionChanged,
-  }) {
-    return emailChanged(email);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-  }) {
-    return emailChanged?.call(email);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (emailChanged != null) {
-      return emailChanged(email);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
-    required TResult Function(_RegisterWithCredentials value)
-        registerWithCredentials,
-    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
-    required TResult Function(_GetUserCredentials value) getUserCredentials,
-    required TResult Function(_PostUserChangedName value) postUserChangedName,
-    required TResult Function(_ExpansionChanged value) expansionChanged,
-  }) {
-    return emailChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-  }) {
-    return emailChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (emailChanged != null) {
-      return emailChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _EmailChanged implements SignupEvent {
-  const factory _EmailChanged({required String? email}) = _$_EmailChanged;
-
-  String? get email;
-  @JsonKey(ignore: true)
-  _$EmailChangedCopyWith<_EmailChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$PasswordChangedCopyWith<$Res> {
-  factory _$PasswordChangedCopyWith(
-          _PasswordChanged value, $Res Function(_PasswordChanged) then) =
-      __$PasswordChangedCopyWithImpl<$Res>;
-  $Res call({String? password});
-}
-
-/// @nodoc
-class __$PasswordChangedCopyWithImpl<$Res>
-    extends _$SignupEventCopyWithImpl<$Res>
-    implements _$PasswordChangedCopyWith<$Res> {
-  __$PasswordChangedCopyWithImpl(
-      _PasswordChanged _value, $Res Function(_PasswordChanged) _then)
-      : super(_value, (v) => _then(v as _PasswordChanged));
-
-  @override
-  _PasswordChanged get _value => super._value as _PasswordChanged;
-
-  @override
-  $Res call({
-    Object? password = freezed,
-  }) {
-    return _then(_PasswordChanged(
-      password: password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_PasswordChanged implements _PasswordChanged {
-  const _$_PasswordChanged({required this.password});
-
-  @override
-  final String? password;
-
-  @override
-  String toString() {
-    return 'SignupEvent.passwordChanged(password: $password)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _PasswordChanged &&
-            const DeepCollectionEquality().equals(other.password, password));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
-
-  @JsonKey(ignore: true)
-  @override
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
-      __$PasswordChangedCopyWithImpl<_PasswordChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
-    required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
-    required TResult Function(int? index) expansionChanged,
-  }) {
-    return passwordChanged(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-  }) {
-    return passwordChanged?.call(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (passwordChanged != null) {
-      return passwordChanged(password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
-    required TResult Function(_RegisterWithCredentials value)
-        registerWithCredentials,
-    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
-    required TResult Function(_GetUserCredentials value) getUserCredentials,
-    required TResult Function(_PostUserChangedName value) postUserChangedName,
-    required TResult Function(_ExpansionChanged value) expansionChanged,
-  }) {
-    return passwordChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-  }) {
-    return passwordChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (passwordChanged != null) {
-      return passwordChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PasswordChanged implements SignupEvent {
-  const factory _PasswordChanged({required String? password}) =
-      _$_PasswordChanged;
-
-  String? get password;
-  @JsonKey(ignore: true)
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ConfirmPasswordChangedCopyWith<$Res> {
-  factory _$ConfirmPasswordChangedCopyWith(_ConfirmPasswordChanged value,
-          $Res Function(_ConfirmPasswordChanged) then) =
-      __$ConfirmPasswordChangedCopyWithImpl<$Res>;
-  $Res call({String? confirmPassword});
-}
-
-/// @nodoc
-class __$ConfirmPasswordChangedCopyWithImpl<$Res>
-    extends _$SignupEventCopyWithImpl<$Res>
-    implements _$ConfirmPasswordChangedCopyWith<$Res> {
-  __$ConfirmPasswordChangedCopyWithImpl(_ConfirmPasswordChanged _value,
-      $Res Function(_ConfirmPasswordChanged) _then)
-      : super(_value, (v) => _then(v as _ConfirmPasswordChanged));
-
-  @override
-  _ConfirmPasswordChanged get _value => super._value as _ConfirmPasswordChanged;
-
-  @override
-  $Res call({
-    Object? confirmPassword = freezed,
-  }) {
-    return _then(_ConfirmPasswordChanged(
-      confirmPassword: confirmPassword == freezed
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ConfirmPasswordChanged implements _ConfirmPasswordChanged {
-  const _$_ConfirmPasswordChanged({required this.confirmPassword});
-
-  @override
-  final String? confirmPassword;
-
-  @override
-  String toString() {
-    return 'SignupEvent.confirmPasswordChanged(confirmPassword: $confirmPassword)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ConfirmPasswordChanged &&
-            const DeepCollectionEquality()
-                .equals(other.confirmPassword, confirmPassword));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(confirmPassword));
-
-  @JsonKey(ignore: true)
-  @override
-  _$ConfirmPasswordChangedCopyWith<_ConfirmPasswordChanged> get copyWith =>
-      __$ConfirmPasswordChangedCopyWithImpl<_ConfirmPasswordChanged>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
-    required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
-    required TResult Function(int? index) expansionChanged,
-  }) {
-    return confirmPasswordChanged(confirmPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-  }) {
-    return confirmPasswordChanged?.call(confirmPassword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
-    TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
-    TResult Function(int? index)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (confirmPasswordChanged != null) {
-      return confirmPasswordChanged(confirmPassword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
-    required TResult Function(_RegisterWithCredentials value)
-        registerWithCredentials,
-    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
-    required TResult Function(_GetUserCredentials value) getUserCredentials,
-    required TResult Function(_PostUserChangedName value) postUserChangedName,
-    required TResult Function(_ExpansionChanged value) expansionChanged,
-  }) {
-    return confirmPasswordChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-  }) {
-    return confirmPasswordChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
-    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
-    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
-    TResult Function(_GetUserCredentials value)? getUserCredentials,
-    TResult Function(_PostUserChangedName value)? postUserChangedName,
-    TResult Function(_ExpansionChanged value)? expansionChanged,
-    required TResult orElse(),
-  }) {
-    if (confirmPasswordChanged != null) {
-      return confirmPasswordChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ConfirmPasswordChanged implements SignupEvent {
-  const factory _ConfirmPasswordChanged({required String? confirmPassword}) =
-      _$_ConfirmPasswordChanged;
-
-  String? get confirmPassword;
-  @JsonKey(ignore: true)
-  _$ConfirmPasswordChangedCopyWith<_ConfirmPasswordChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 abstract class _$RegisterWithCredentialsCopyWith<$Res> {
   factory _$RegisterWithCredentialsCopyWith(_RegisterWithCredentials value,
           $Res Function(_RegisterWithCredentials) then) =
       __$RegisterWithCredentialsCopyWithImpl<$Res>;
+  $Res call(
+      {String? name, String? email, String? password, String? confirmPassword});
 }
 
 /// @nodoc
@@ -1356,81 +165,129 @@ class __$RegisterWithCredentialsCopyWithImpl<$Res>
   @override
   _RegisterWithCredentials get _value =>
       super._value as _RegisterWithCredentials;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? confirmPassword = freezed,
+  }) {
+    return _then(_RegisterWithCredentials(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      confirmPassword: confirmPassword == freezed
+          ? _value.confirmPassword
+          : confirmPassword // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_RegisterWithCredentials implements _RegisterWithCredentials {
-  const _$_RegisterWithCredentials();
+  const _$_RegisterWithCredentials(
+      {required this.name,
+      required this.email,
+      required this.password,
+      required this.confirmPassword});
+
+  @override
+  final String? name;
+  @override
+  final String? email;
+  @override
+  final String? password;
+  @override
+  final String? confirmPassword;
 
   @override
   String toString() {
-    return 'SignupEvent.registerWithCredentials()';
+    return 'SignupEvent.registerWithCredentials(name: $name, email: $email, password: $password, confirmPassword: $confirmPassword)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _RegisterWithCredentials);
+        (other.runtimeType == runtimeType &&
+            other is _RegisterWithCredentials &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.confirmPassword, confirmPassword));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(confirmPassword));
+
+  @JsonKey(ignore: true)
+  @override
+  _$RegisterWithCredentialsCopyWith<_RegisterWithCredentials> get copyWith =>
+      __$RegisterWithCredentialsCopyWithImpl<_RegisterWithCredentials>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
     required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
     required TResult Function(int? index) expansionChanged,
   }) {
-    return registerWithCredentials();
+    return registerWithCredentials(name, email, password, confirmPassword);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
   }) {
-    return registerWithCredentials?.call();
+    return registerWithCredentials?.call(
+        name, email, password, confirmPassword);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
     required TResult orElse(),
   }) {
     if (registerWithCredentials != null) {
-      return registerWithCredentials();
+      return registerWithCredentials(name, email, password, confirmPassword);
     }
     return orElse();
   }
@@ -1438,13 +295,6 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
     required TResult Function(_RegisterWithCredentials value)
         registerWithCredentials,
     required TResult Function(_LoginWithCredentials value) loginWithCredentials,
@@ -1458,12 +308,6 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1476,12 +320,6 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1497,7 +335,19 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
 }
 
 abstract class _RegisterWithCredentials implements SignupEvent {
-  const factory _RegisterWithCredentials() = _$_RegisterWithCredentials;
+  const factory _RegisterWithCredentials(
+      {required String? name,
+      required String? email,
+      required String? password,
+      required String? confirmPassword}) = _$_RegisterWithCredentials;
+
+  String? get name;
+  String? get email;
+  String? get password;
+  String? get confirmPassword;
+  @JsonKey(ignore: true)
+  _$RegisterWithCredentialsCopyWith<_RegisterWithCredentials> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1505,6 +355,7 @@ abstract class _$LoginWithCredentialsCopyWith<$Res> {
   factory _$LoginWithCredentialsCopyWith(_LoginWithCredentials value,
           $Res Function(_LoginWithCredentials) then) =
       __$LoginWithCredentialsCopyWithImpl<$Res>;
+  $Res call({String? email, String? password});
 }
 
 /// @nodoc
@@ -1517,81 +368,105 @@ class __$LoginWithCredentialsCopyWithImpl<$Res>
 
   @override
   _LoginWithCredentials get _value => super._value as _LoginWithCredentials;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? password = freezed,
+  }) {
+    return _then(_LoginWithCredentials(
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_LoginWithCredentials implements _LoginWithCredentials {
-  const _$_LoginWithCredentials();
+  const _$_LoginWithCredentials({required this.email, required this.password});
+
+  @override
+  final String? email;
+  @override
+  final String? password;
 
   @override
   String toString() {
-    return 'SignupEvent.loginWithCredentials()';
+    return 'SignupEvent.loginWithCredentials(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoginWithCredentials);
+        (other.runtimeType == runtimeType &&
+            other is _LoginWithCredentials &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password));
+
+  @JsonKey(ignore: true)
+  @override
+  _$LoginWithCredentialsCopyWith<_LoginWithCredentials> get copyWith =>
+      __$LoginWithCredentialsCopyWithImpl<_LoginWithCredentials>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
     required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
     required TResult Function(int? index) expansionChanged,
   }) {
-    return loginWithCredentials();
+    return loginWithCredentials(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
   }) {
-    return loginWithCredentials?.call();
+    return loginWithCredentials?.call(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
     required TResult orElse(),
   }) {
     if (loginWithCredentials != null) {
-      return loginWithCredentials();
+      return loginWithCredentials(email, password);
     }
     return orElse();
   }
@@ -1599,13 +474,6 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
     required TResult Function(_RegisterWithCredentials value)
         registerWithCredentials,
     required TResult Function(_LoginWithCredentials value) loginWithCredentials,
@@ -1619,12 +487,6 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1637,12 +499,6 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1658,7 +514,15 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
 }
 
 abstract class _LoginWithCredentials implements SignupEvent {
-  const factory _LoginWithCredentials() = _$_LoginWithCredentials;
+  const factory _LoginWithCredentials(
+      {required String? email,
+      required String? password}) = _$_LoginWithCredentials;
+
+  String? get email;
+  String? get password;
+  @JsonKey(ignore: true)
+  _$LoginWithCredentialsCopyWith<_LoginWithCredentials> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1702,16 +566,14 @@ class _$_GetUserCredentials implements _GetUserCredentials {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
     required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
     required TResult Function(int? index) expansionChanged,
   }) {
     return getUserCredentials();
@@ -1720,16 +582,12 @@ class _$_GetUserCredentials implements _GetUserCredentials {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
   }) {
     return getUserCredentials?.call();
@@ -1738,16 +596,12 @@ class _$_GetUserCredentials implements _GetUserCredentials {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
     required TResult orElse(),
   }) {
@@ -1760,13 +614,6 @@ class _$_GetUserCredentials implements _GetUserCredentials {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
     required TResult Function(_RegisterWithCredentials value)
         registerWithCredentials,
     required TResult Function(_LoginWithCredentials value) loginWithCredentials,
@@ -1780,12 +627,6 @@ class _$_GetUserCredentials implements _GetUserCredentials {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1798,12 +639,6 @@ class _$_GetUserCredentials implements _GetUserCredentials {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1827,6 +662,7 @@ abstract class _$PostUserChangedNameCopyWith<$Res> {
   factory _$PostUserChangedNameCopyWith(_PostUserChangedName value,
           $Res Function(_PostUserChangedName) then) =
       __$PostUserChangedNameCopyWithImpl<$Res>;
+  $Res call({String? firstName, String? lastName});
 }
 
 /// @nodoc
@@ -1839,81 +675,106 @@ class __$PostUserChangedNameCopyWithImpl<$Res>
 
   @override
   _PostUserChangedName get _value => super._value as _PostUserChangedName;
+
+  @override
+  $Res call({
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+  }) {
+    return _then(_PostUserChangedName(
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_PostUserChangedName implements _PostUserChangedName {
-  const _$_PostUserChangedName();
+  const _$_PostUserChangedName(
+      {required this.firstName, required this.lastName});
+
+  @override
+  final String? firstName;
+  @override
+  final String? lastName;
 
   @override
   String toString() {
-    return 'SignupEvent.postUserChangedName()';
+    return 'SignupEvent.postUserChangedName(firstName: $firstName, lastName: $lastName)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _PostUserChangedName);
+        (other.runtimeType == runtimeType &&
+            other is _PostUserChangedName &&
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality().equals(other.lastName, lastName));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(lastName));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostUserChangedNameCopyWith<_PostUserChangedName> get copyWith =>
+      __$PostUserChangedNameCopyWithImpl<_PostUserChangedName>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
     required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
     required TResult Function(int? index) expansionChanged,
   }) {
-    return postUserChangedName();
+    return postUserChangedName(firstName, lastName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
   }) {
-    return postUserChangedName?.call();
+    return postUserChangedName?.call(firstName, lastName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
     required TResult orElse(),
   }) {
     if (postUserChangedName != null) {
-      return postUserChangedName();
+      return postUserChangedName(firstName, lastName);
     }
     return orElse();
   }
@@ -1921,13 +782,6 @@ class _$_PostUserChangedName implements _PostUserChangedName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
     required TResult Function(_RegisterWithCredentials value)
         registerWithCredentials,
     required TResult Function(_LoginWithCredentials value) loginWithCredentials,
@@ -1941,12 +795,6 @@ class _$_PostUserChangedName implements _PostUserChangedName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1959,12 +807,6 @@ class _$_PostUserChangedName implements _PostUserChangedName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -1980,7 +822,15 @@ class _$_PostUserChangedName implements _PostUserChangedName {
 }
 
 abstract class _PostUserChangedName implements SignupEvent {
-  const factory _PostUserChangedName() = _$_PostUserChangedName;
+  const factory _PostUserChangedName(
+      {required String? firstName,
+      required String? lastName}) = _$_PostUserChangedName;
+
+  String? get firstName;
+  String? get lastName;
+  @JsonKey(ignore: true)
+  _$PostUserChangedNameCopyWith<_PostUserChangedName> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2048,16 +898,14 @@ class _$_ExpansionChanged implements _ExpansionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? name) nameChanged,
-    required TResult Function(String? firstName) firstNameChanged,
-    required TResult Function(String? lastName) lastNameChanged,
-    required TResult Function(String? email) emailChanged,
-    required TResult Function(String? password) passwordChanged,
-    required TResult Function(String? confirmPassword) confirmPasswordChanged,
-    required TResult Function() registerWithCredentials,
-    required TResult Function() loginWithCredentials,
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
     required TResult Function() getUserCredentials,
-    required TResult Function() postUserChangedName,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
     required TResult Function(int? index) expansionChanged,
   }) {
     return expansionChanged(index);
@@ -2066,16 +914,12 @@ class _$_ExpansionChanged implements _ExpansionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
   }) {
     return expansionChanged?.call(index);
@@ -2084,16 +928,12 @@ class _$_ExpansionChanged implements _ExpansionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? name)? nameChanged,
-    TResult Function(String? firstName)? firstNameChanged,
-    TResult Function(String? lastName)? lastNameChanged,
-    TResult Function(String? email)? emailChanged,
-    TResult Function(String? password)? passwordChanged,
-    TResult Function(String? confirmPassword)? confirmPasswordChanged,
-    TResult Function()? registerWithCredentials,
-    TResult Function()? loginWithCredentials,
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
     TResult Function()? getUserCredentials,
-    TResult Function()? postUserChangedName,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
     required TResult orElse(),
   }) {
@@ -2106,13 +946,6 @@ class _$_ExpansionChanged implements _ExpansionChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NameChanged value) nameChanged,
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_ConfirmPasswordChanged value)
-        confirmPasswordChanged,
     required TResult Function(_RegisterWithCredentials value)
         registerWithCredentials,
     required TResult Function(_LoginWithCredentials value) loginWithCredentials,
@@ -2126,12 +959,6 @@ class _$_ExpansionChanged implements _ExpansionChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,
@@ -2144,12 +971,6 @@ class _$_ExpansionChanged implements _ExpansionChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NameChanged value)? nameChanged,
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
     TResult Function(_LoginWithCredentials value)? loginWithCredentials,
     TResult Function(_GetUserCredentials value)? getUserCredentials,

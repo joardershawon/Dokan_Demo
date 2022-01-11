@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 SnackBar customSnackBar(String text) {
   return SnackBar(
-    content: Text(
-      text,
-      textAlign: TextAlign.center,
-      style: const TextStyle(
-        fontSize: 16,
-        color: Colors.white,
-      ),
-    ),
+    backgroundColor: Colors.white,
+    content: Html(data: text),
   );
 }

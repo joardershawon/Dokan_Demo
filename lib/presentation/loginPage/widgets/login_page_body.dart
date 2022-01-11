@@ -41,9 +41,6 @@ class LoginPageBody extends StatelessWidget {
               customSnackBar(l.errorText ?? 'gg'),
             ),
             (r) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                customSnackBar('Hoorrrraayyyyy !! Successfull !!!'),
-              );
               return context.router.replaceAll(
                 [
                   const HomeRouter(),
@@ -73,15 +70,17 @@ class LoginPageBody extends StatelessWidget {
                   const CustomTitleWidget(),
                   SizedBox(height: getPercentSize(1, true, context)),
                   CustomTextFormField(
+                    key: UniqueKey(),
                     hintText: 'Email',
                     prefixIcon: SvgPicture.asset('assets/email_icon.svg'),
                     suffixIcon: const SizedBox.shrink(),
                     textEditingController: emailController,
                     onChange: (String v) {
-                      BlocProvider.of<SignupBloc>(context).add(SignupEvent.emailChanged(email: v));
+                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.emailChanged(email: v));
                     },
                   ),
                   CustomTextFormField(
+                    key: UniqueKey(),
                     obscureText: true,
                     hintText: 'Password',
                     prefixIcon: SvgPicture.asset('assets/password_icon.svg'),
@@ -89,19 +88,25 @@ class LoginPageBody extends StatelessWidget {
                       Icons.remove_red_eye_sharp,
                     ),
                     onChange: (String v) {
-                      BlocProvider.of<SignupBloc>(context).add(SignupEvent.passwordChanged(password: v));
+                      // BlocProvider.of<SignupBloc>(context).add(SignupEvent.passwordChanged(password: v));
                     },
                     textEditingController: passwordController,
                   ),
                   const ForgotPasswordWidget(),
                   SizedBox(height: getPercentSize(8, false, context)),
                   state.isLoading!
-                      ? const Center(child: CircularProgressIndicator(color: Coolors.kOrangeColor))
+                      ? Center(child: CircularProgressIndicator(key: UniqueKey(), color: Coolors.kOrangeColor))
                       : OrangeButton(
+                          key: UniqueKey(),
                           title: 'Login',
                           onTap: () {
                             //**!.................... LOGIN ....................*/
-                            BlocProvider.of<SignupBloc>(context).add(const SignupEvent.loginWithCredentials());
+                            BlocProvider.of<SignupBloc>(context).add(
+                              SignupEvent.loginWithCredentials(
+                                email: emailController.text,
+                                password: passwordController.text,
+                              ),
+                            );
                           },
                         ),
                   // SizedBox(height: getPercentSize(5, true, context)),

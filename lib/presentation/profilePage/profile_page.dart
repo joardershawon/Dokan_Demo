@@ -271,17 +271,13 @@ class AccountExpansionItems extends StatelessWidget {
               CustomTextFormFieldWithTopTitleWidget(
                 title: 'First Name',
                 hintText: 'Willam',
-                onChange: (String v) {
-                  BlocProvider.of<SignupBloc>(context).add(SignupEvent.firstNameChanged(firstName: v));
-                },
+                onChange: (String v) {},
                 textEditingController: _firstNameController,
               ),
               CustomTextFormFieldWithTopTitleWidget(
                 title: 'Last name',
                 hintText: 'Benett',
-                onChange: (String v) {
-                  BlocProvider.of<SignupBloc>(context).add(SignupEvent.lastNameChanged(lastName: v));
-                },
+                onChange: (String v) {},
                 textEditingController: _lastNameController,
               ),
               CustomTextFormFieldWithTopTitleWidget(
@@ -304,8 +300,9 @@ class AccountExpansionItems extends StatelessWidget {
                 textEditingController: null,
               ),
               state.isLoading!
-                  ? const Center(
+                  ? Center(
                       child: CircularProgressIndicator(
+                        key: UniqueKey(),
                         color: Colors.orange,
                       ),
                     )
@@ -314,7 +311,12 @@ class AccountExpansionItems extends StatelessWidget {
                       buttonText2: 'Save',
                       onButton1Press: () {},
                       onButton2Press: () {
-                        BlocProvider.of<SignupBloc>(context).add(const SignupEvent.postUserChangedName());
+                        BlocProvider.of<SignupBloc>(context).add(
+                          SignupEvent.postUserChangedName(
+                            firstName: _firstNameController.text,
+                            lastName: _lastNameController.text,
+                          ),
+                        );
                       },
                     ),
             ],

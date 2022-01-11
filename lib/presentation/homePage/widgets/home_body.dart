@@ -33,7 +33,6 @@ class _HomeBodyState extends State<HomeBody> {
             vertical: 10,
           ),
           child: CustomScrollView(
-            key: UniqueKey(),
             scrollDirection: Axis.vertical,
             slivers: [
               SliverToBoxAdapter(
@@ -52,17 +51,20 @@ class _HomeBodyState extends State<HomeBody> {
                   ],
                 ),
               ),
-              const SliverToBoxAdapter(
-                child: FilterWidget(),
+              SliverToBoxAdapter(
+                key: UniqueKey(),
+                child: const FilterWidget(),
               ),
               SliverToBoxAdapter(
+                key: UniqueKey(),
                 child: SizedBox(
                   height: getPercentSize(5, true, context),
                 ),
               ),
               state.products!.isEmpty
-                  ? const SliverToBoxAdapter(
-                      child: SizedBox(
+                  ? SliverToBoxAdapter(
+                      key: UniqueKey(),
+                      child: const SizedBox(
                         child: Text(
                           'Nothing Found',
                           textAlign: TextAlign.center,
@@ -79,6 +81,7 @@ class _HomeBodyState extends State<HomeBody> {
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
                           return ProductCardWidget(
+                            key: UniqueKey(),
                             title: state.products![index].name,
                             price: state.products![index].price.toString(),
                             regularPrice: state.products![index].regularPrice.toString(),
@@ -89,6 +92,7 @@ class _HomeBodyState extends State<HomeBody> {
                       ),
                     ),
               SliverToBoxAdapter(
+                key: UniqueKey(),
                 child: SizedBox(
                   height: getPercentSize(8, true, context),
                 ),
@@ -130,13 +134,9 @@ class ProductCardWidget extends StatelessWidget {
         children: [
           Expanded(
             flex: 4,
-            child: Container(
-              color: Coolors.kGradient1Color,
-              child: CustomNetworkImage(
-                imageUrl: imgUrl,
-                height: 50,
-                width: 50,
-              ),
+            child: CustomNetworkImage(
+              key: UniqueKey(),
+              imageUrl: imgUrl,
             ),
           ),
           Expanded(

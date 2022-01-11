@@ -29,21 +29,29 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
+        key: UniqueKey(),
+        fit: StackFit.passthrough,
         children: [
           TabBarView(
+            key: UniqueKey(),
             physics: const NeverScrollableScrollPhysics(),
             controller: tabController,
-            children: const [
-              HomeBody(),
-              EmptyScaffold(),
-              EmptyScaffold(),
-              ProfilePage(),
+            children: [
+              const HomeBody(),
+              EmptyScaffold(
+                key: UniqueKey(),
+              ),
+              EmptyScaffold(
+                key: UniqueKey(),
+              ),
+              const ProfilePage(),
             ],
           ),
           Positioned(
             bottom: 0,
             left: 0,
             child: CustomBNBar(
+              key: UniqueKey(),
               currentIndex: tabController.index,
               onTap1: () => setState(() => tabController.animateTo(0)),
               onTap2: () => setState(() => tabController.animateTo(1)),

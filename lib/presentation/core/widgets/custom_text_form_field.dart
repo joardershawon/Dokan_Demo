@@ -33,19 +33,21 @@ class CustomTextFormField extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(5.0),
           child: TextFormField(
+            key: UniqueKey(),
             enableSuggestions: false,
             keyboardType: textInputType,
             textInputAction: textInputAction,
             obscureText: obscureText!,
             controller: textEditingController,
-            onChanged: obscureText! ? null : (value) => onChange!(value),
-            onFieldSubmitted: obscureText! ? (value) => onChange!(value) : null,
+            // onChanged: obscureText! ? null : (value) => onChange!(value),
+            // onFieldSubmitted: obscureText! ? (value) => onChange!(value) : null,
             cursorColor: Coolors.kOrangeColor,
             decoration: InputDecoration(
               border: InputBorder.none,
               prefixIconConstraints: const BoxConstraints(
                 maxHeight: 22,
                 minWidth: 50,
+                maxWidth: 50,
               ),
               hintText: hintText,
               prefixIcon: prefixIcon,

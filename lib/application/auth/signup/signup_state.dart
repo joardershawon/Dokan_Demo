@@ -20,7 +20,7 @@ class SignupState with _$SignupState {
         email: '',
         password: '',
         confirmPassword: '',
-        showError: true,
+        showError: false,
         authFailureOrSuccess: none(),
         isLoading: false,
         firstName: '',

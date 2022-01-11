@@ -16,71 +16,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   SignupBloc(
     this._iAuthFacade,
   ) : super(SignupState.initial()) {
-    on<_NameChanged>(
-      (event, emit) {
-        emit(
-          state.copyWith(
-            name: event.name,
-            showError: false,
-            isLoading: false,
-            authFailureOrSuccess: none(),
-          ),
-        );
-      },
-    );
-    on<_EmailChanged>(
-      (event, emit) {
-        emit(
-          state.copyWith(
-            email: event.email,
-            showError: false,
-            isLoading: false,
-            authFailureOrSuccess: none(),
-          ),
-        );
-      },
-    );
-    on<_PasswordChanged>(
-      (event, emit) {
-        emit(
-          state.copyWith(
-            password: event.password,
-            showError: false,
-            isLoading: false,
-            authFailureOrSuccess: none(),
-          ),
-        );
-      },
-    );
-    on<_ConfirmPasswordChanged>(
-      (event, emit) {
-        if (state.password == event.confirmPassword) {
-          emit(
-            state.copyWith(
-              showError: false,
-              isLoading: false,
-              confirmPassword: event.confirmPassword,
-              authFailureOrSuccess: none(),
-            ),
-          );
-        } else {
-          emit(
-            state.copyWith(
-              showError: true,
-              isLoading: false,
-              authFailureOrSuccess: none(),
-            ),
-          );
-        }
-      },
-    );
     on<_RegisterWithCredentials>(
       (event, emit) async {
-        bool isFormEmpty = state.showError! ||
-            state.email == null ||
-            state.password == null ||
-            state.name == null ||
-            state.confirmPassword == null;
+        bool isFormEmpty =
+            event.email!.isEmpty || event.password!.isEmpty || event.name!.isEmpty || event.confirmPassword!.isEmpty;
 
         emit(
           state.copyWith(
@@ -100,9 +39,9 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           );
         } else {
           var x = await _iAuthFacade.registerUser(
-            username: state.name,
-            email: state.email,
-            password: state.password,
+            username: event.name,
+            email: event.email,
+            password: event.password,
           );
           emit(
             state.copyWith(
@@ -115,7 +54,8 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     );
     on<_LoginWithCredentials>(
       (event, emit) async {
-        bool isFormEmpty = state.showError! || state.email == null || state.password == null;
+        bool isFormEmpty = event.email!.isEmpty || event.password!.isEmpty;
+        print(isFormEmpty);
         emit(
           state.copyWith(
             isLoading: true,
@@ -134,8 +74,8 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           );
         } else {
           var x = await _iAuthFacade.loginUser(
-            email: state.email,
-            password: state.password,
+            email: event.email,
+            password: event.password,
           );
           emit(
             state.copyWith(
@@ -175,33 +115,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
         );
       },
     );
-    on<_FirstNameChanged>(
-      (event, emit) {
-        emit(
-          state.copyWith(
-            firstName: event.firstName,
-            showError: false,
-            isLoading: false,
-            authFailureOrSuccess: none(),
-          ),
-        );
-      },
-    );
-    on<_LastNameChanged>(
-      (event, emit) {
-        emit(
-          state.copyWith(
-            lastName: event.lastName,
-            showError: false,
-            isLoading: false,
-            authFailureOrSuccess: none(),
-          ),
-        );
-      },
-    );
+
     on<_PostUserChangedName>(
       (event, emit) async {
-        bool isFormEmpty = state.showError! || state.firstName == null || state.lastName == null;
+        bool isFormEmpty = event.firstName!.isEmpty || event.lastName!.isEmpty;
         emit(
           state.copyWith(
             isLoading: true,
@@ -226,8 +143,8 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             ),
           );
           var x = await _iAuthFacade.postChangedName(
-            firstName: state.firstName,
-            lastName: state.lastName,
+            firstName: event.firstName,
+            lastName: event.lastName,
           );
           x.fold(
             (l) => emit(

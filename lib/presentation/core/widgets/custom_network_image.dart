@@ -6,16 +6,13 @@ import 'package:shimmer/shimmer.dart';
 class CustomNetworkImage extends StatelessWidget {
   final String? imageUrl;
   final bool? hasShadow;
-  final double? height;
-  final double? width;
+
   final BoxFit? fit;
   final String? token;
 
   const CustomNetworkImage({
     Key? key,
     @required this.imageUrl,
-    @required this.height,
-    @required this.width,
     this.hasShadow = false,
     this.fit = BoxFit.cover,
     this.token,
@@ -25,19 +22,18 @@ class CustomNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: imageUrl ?? '',
-      // httpHeaders: {"Authorization": "Bearer $token"},
-      // height: height,
-      // width: width,
       fit: BoxFit.cover,
       imageBuilder: (BuildContext context, ImageProvider<Object> imageProvider) => Container(
+        key: UniqueKey(),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,
-            fit: fit ?? BoxFit.contain,
+            fit: fit ?? BoxFit.cover,
           ),
         ),
       ),
-      placeholder: (BuildContext context, String url) => const ImagePlaceholder(
+      placeholder: (BuildContext context, String url) => ImagePlaceholder(
+        key: UniqueKey(),
         width: double.infinity,
       ),
       errorWidget: (BuildContext context, String url, error) => const Icon(Icons.error),
