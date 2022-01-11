@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> resetPrefs(String value) async {
+Future<void> resetPrefs() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.clear();
 }

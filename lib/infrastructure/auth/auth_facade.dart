@@ -56,9 +56,14 @@ class AuthFacade implements IAuthFacade {
         .then((value) => json.decode(value.body));
 
     if (res['token'] != null) {
-      print(res['token']);
-      await setToken(res['token']);
-      await setEmail(res['user_email']);
+      await resetPrefs().then(
+        (value) async => await setToken(res['token']).then(
+          (value) async => await setEmail(
+            res['user_email'],
+          ),
+        ),
+      );
+
       return const Right(unit);
     } else {
       return Left(
