@@ -64,7 +64,13 @@ class AccountExpansionItems extends StatelessWidget {
                   : CustomCancelSaveButton(
                       buttonText1: 'Cancel',
                       buttonText2: 'Save',
-                      onButton1Press: () {},
+                      onButton1Press: () {
+                        BlocProvider.of<SignupBloc>(context).add(
+                          SignupEvent.expansionChanged(
+                            index: state.panelIndex,
+                          ),
+                        );
+                      },
                       onButton2Press: () {
                         BlocProvider.of<SignupBloc>(context).add(
                           SignupEvent.postUserChangedName(
