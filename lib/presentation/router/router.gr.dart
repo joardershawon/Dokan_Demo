@@ -11,16 +11,17 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:flutter/material.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
+import '../blank/empty_scaffold.dart' as _i5;
 import '../homePage/home_page.dart' as _i3;
-import '../homePage/widgets/home_body.dart' as _i6;
+import '../homePage/widgets/home_body.dart' as _i7;
 import '../loginPage/login_page.dart' as _i1;
-import '../profilePage/profile_page.dart' as _i5;
+import '../profilePage/profile_page.dart' as _i6;
 import '../signUpPage/sign_up_page.dart' as _i2;
 
 class AppRouter extends _i4.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
+  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -41,13 +42,17 @@ class AppRouter extends _i4.RootStackRouter {
       return _i4.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.EmptyRouterPage());
     },
+    EmptyScaffoldRouter.name: (routeData) {
+      return _i4.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i5.EmptyScaffold());
+    },
     ProfileRouter.name: (routeData) {
       return _i4.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.ProfilePage());
+          routeData: routeData, child: const _i6.ProfilePage());
     },
     HomebodyRouter.name: (routeData) {
       return _i4.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i6.HomeBody());
+          routeData: routeData, child: const _i7.HomeBody());
     }
   };
 
@@ -63,6 +68,8 @@ class AppRouter extends _i4.RootStackRouter {
                 _i4.RouteConfig(HomebodyRouter.name,
                     path: '', parent: HomeBodyRouter.name)
               ]),
+          _i4.RouteConfig(EmptyScaffoldRouter.name,
+              path: 'empty-scaffold', parent: HomeRouter.name),
           _i4.RouteConfig(ProfileRouter.name,
               path: 'profile', parent: HomeRouter.name)
         ])
@@ -104,7 +111,16 @@ class HomeBodyRouter extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.ProfilePage]
+/// [_i5.EmptyScaffold]
+class EmptyScaffoldRouter extends _i4.PageRouteInfo<void> {
+  const EmptyScaffoldRouter()
+      : super(EmptyScaffoldRouter.name, path: 'empty-scaffold');
+
+  static const String name = 'EmptyScaffoldRouter';
+}
+
+/// generated route for
+/// [_i6.ProfilePage]
 class ProfileRouter extends _i4.PageRouteInfo<void> {
   const ProfileRouter() : super(ProfileRouter.name, path: 'profile');
 
@@ -112,7 +128,7 @@ class ProfileRouter extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.HomeBody]
+/// [_i7.HomeBody]
 class HomebodyRouter extends _i4.PageRouteInfo<void> {
   const HomebodyRouter() : super(HomebodyRouter.name, path: '');
 

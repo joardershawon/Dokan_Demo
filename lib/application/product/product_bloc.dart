@@ -24,13 +24,13 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         );
         x = await _iProductRepository.getAllProduct();
         x.sort((a, b) => a.id!.compareTo(b.id!));
+        y = x;
         emit(
           state.copyWith(
             isLoading: false,
-            products: x,
+            products: y,
           ),
         );
-        y = x;
       },
     );
     on<_FilterPressed>(
@@ -38,18 +38,23 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         productFilter = event.productFilter!;
         emit(
           state.copyWith(
-            productFilter: productFilter,
+            productFilter: event.productFilter,
+            products: y,
           ),
         );
       },
     );
     on<_SubmitPressed>(
       (event, emit) {
+        emit(
+          state.copyWith(
+            isLoading: true,
+          ),
+        );
         y = x;
-
         if (y.isNotEmpty) {
-          if (productFilter == ProductFilter.old) {
-            y = x.where(
+          if (state.productFilter == ProductFilter.old) {
+            y = y.where(
               (element) {
                 return element.dateCreatedGmt!.isBefore(DateTime.now());
               },
@@ -58,20 +63,24 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             emit(
               state.copyWith(
                 products: y,
+                isLoading: false,
               ),
             );
-          } else if (productFilter == ProductFilter.neew) {
-            y = x.where((element) => element.dateCreatedGmt!.isAfter(DateTime.now())).toList();
+          } else if (state.productFilter == ProductFilter.neew) {
+            y = y.where((element) => element.dateCreatedGmt!.isAfter(DateTime.now())).toList();
             emit(
               state.copyWith(
                 products: y,
+                isLoading: false,
               ),
             );
-          } else if (productFilter == ProductFilter.ascendingPrice) {
+          } else if (state.productFilter == ProductFilter.ascendingPrice) {
             y.sort((a, b) => double.parse(a.price!).compareTo(double.parse(b.price!)));
+
             emit(
               state.copyWith(
                 products: y,
+                isLoading: false,
               ),
             );
           }
@@ -79,6 +88,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           emit(
             state.copyWith(
               products: y,
+              isLoading: false,
             ),
           );
         }

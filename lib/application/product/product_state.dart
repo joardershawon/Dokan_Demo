@@ -8,7 +8,7 @@ class ProductState with _$ProductState {
     required List<Product>? products,
   }) = _ProductState;
   factory ProductState.initial() => const ProductState(
-        productFilter: ProductFilter.old,
+        productFilter: null,
         products: [],
         isLoading: false,
       );

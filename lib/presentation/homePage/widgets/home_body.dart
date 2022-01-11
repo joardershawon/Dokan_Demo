@@ -22,6 +22,12 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   @override
+  void didUpdateWidget(covariant HomeBody oldWidget) {
+    setState(() {});
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     const itemWidth = 160.0;
     const itemHeight = 290.0;
