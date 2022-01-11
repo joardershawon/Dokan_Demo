@@ -74,6 +74,7 @@ class LoginPageBody extends StatelessWidget {
                   ),
                   CustomTextFormField(
                     key: UniqueKey(),
+                    textInputAction: TextInputAction.done,
                     obscureText: true,
                     hintText: 'Password',
                     prefixIcon: SvgPicture.asset('assets/password_icon.svg'),

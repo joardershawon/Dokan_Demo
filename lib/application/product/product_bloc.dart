@@ -23,7 +23,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           state.copyWith(isLoading: true),
         );
         x = await _iProductRepository.getAllProduct();
-        x.sort((a, b) => a.id!.compareTo(b.id!));
         y = x;
         emit(
           state.copyWith(
@@ -59,7 +58,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
                 return element.dateCreatedGmt!.isBefore(DateTime.now());
               },
             ).toList();
-            y.sort((a, b) => a.id!.compareTo(b.id!));
+            // y.sort((a, b) => a.id!.compareTo(b.id!));
             emit(
               state.copyWith(
                 products: y,

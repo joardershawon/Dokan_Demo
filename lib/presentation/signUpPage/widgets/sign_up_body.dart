@@ -40,9 +40,6 @@ class SignUpBody extends StatelessWidget {
               customSnackBar(l.errorText!),
             ),
             (r) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                customSnackBar('Hoorrrraayyyyy !! Successfull !!!'),
-              );
               return context.router.replaceAll(
                 [
                   const LoginPageRouter(),

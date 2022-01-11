@@ -10,7 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.onChange,
     required this.textEditingController,
     this.obscureText = false,
-    this.textInputAction = TextInputAction.done,
+    this.textInputAction = TextInputAction.next,
     this.textInputType = TextInputType.text,
   }) : super(key: key);
   final Widget? prefixIcon, suffixIcon;
