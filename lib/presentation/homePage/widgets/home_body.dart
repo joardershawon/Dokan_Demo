@@ -1,12 +1,8 @@
-import '../../../application/product/product_bloc.dart';
-import '../../../domain/product/i_product_repository.dart';
-import '../../core/widgets/orange_button.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/product/product_bloc.dart';
 import '../../core/size.dart';
-import '../../design/coolors.dart';
-import 'package:flutter/material.dart';
-
 import 'filter_widget.dart';
 import 'product_card_widget.dart';
 
@@ -20,11 +16,11 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  @override
-  void didUpdateWidget(covariant HomeBody oldWidget) {
-    setState(() {});
-    super.didUpdateWidget(oldWidget);
-  }
+  // @override
+  // void didUpdateWidget(covariant HomeBody oldWidget) {
+  //   setState(() {});
+  //   super.didUpdateWidget(oldWidget);
+  // }
 
   @override
   Widget build(BuildContext context) {

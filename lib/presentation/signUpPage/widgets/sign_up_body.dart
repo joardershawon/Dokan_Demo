@@ -112,6 +112,7 @@ class SignUpBody extends StatelessWidget {
                                   password: passwordController.text,
                                   confirmPassword: confirmPasswordController.text),
                             );
+                            // BlocProvider.of<SignupBloc>(context).add(SignupEvent.loadSuccess());
                           },
                         ),
                   const SocialRowWidget(),

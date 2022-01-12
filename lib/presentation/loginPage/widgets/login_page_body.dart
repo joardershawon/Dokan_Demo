@@ -34,6 +34,12 @@ class LoginPageBody extends StatelessWidget {
             customSnackBar('Credential Error'),
           );
         }
+        state.showSuccessToast!
+            ? const SnackBar(
+                backgroundColor: Coolors.kBottomSheetButtonColor,
+                content: Text('Registration completed'),
+              )
+            : null;
         state.authFailureOrSuccess!.fold(
           () => null,
           (a) => a.fold(

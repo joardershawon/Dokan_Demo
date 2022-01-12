@@ -25,6 +25,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           state.copyWith(
             isLoading: true,
             showError: false,
+            showSuccessToast: false,
             authFailureOrSuccess: none(),
           ),
         );
@@ -34,6 +35,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             state.copyWith(
               showError: true,
               isLoading: false,
+              showSuccessToast: false,
               authFailureOrSuccess: none(),
             ),
           );
@@ -46,6 +48,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           emit(
             state.copyWith(
               isLoading: false,
+              showSuccessToast: true,
               authFailureOrSuccess: optionOf(x),
             ),
           );
@@ -60,6 +63,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           state.copyWith(
             isLoading: true,
             showError: false,
+            showSuccessToast: false,
             authFailureOrSuccess: none(),
           ),
         );
@@ -69,6 +73,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             state.copyWith(
               showError: true,
               isLoading: false,
+              showSuccessToast: false,
               authFailureOrSuccess: none(),
             ),
           );
@@ -80,6 +85,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           emit(
             state.copyWith(
               isLoading: false,
+              showSuccessToast: true,
               authFailureOrSuccess: optionOf(x),
             ),
           );
@@ -176,6 +182,16 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
             isLoading: false,
             isExpanded: !state.isExpanded!,
             panelIndex: event.index,
+          ),
+        );
+      },
+    );
+
+    on<_LoadSuccess>(
+      (event, emit) {
+        emit(
+          state.copyWith(
+            showSuccessToast: true,
           ),
         );
       },

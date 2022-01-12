@@ -21,4 +21,5 @@ class SignupEvent with _$SignupEvent {
     required int? index,
     // required bool? expansion,
   }) = _ExpansionChanged;
+  const factory SignupEvent.loadSuccess() = _LoadSuccess;
 }

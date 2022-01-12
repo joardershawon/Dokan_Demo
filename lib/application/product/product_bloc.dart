@@ -12,10 +12,10 @@ part 'product_bloc.freezed.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final IProductRepository _iProductRepository;
   ProductFilter productFilter = ProductFilter.old;
+  List<Product> x = [];
   ProductBloc(
     this._iProductRepository,
   ) : super(ProductState.initial()) {
-    List<Product> x = [];
     List<Product> y = [];
     on<_Started>(
       (event, emit) async {
@@ -38,7 +38,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         emit(
           state.copyWith(
             productFilter: event.productFilter,
-            products: y,
           ),
         );
       },
@@ -48,6 +47,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         emit(
           state.copyWith(
             isLoading: true,
+            products: y,
           ),
         );
         y = x;
@@ -58,7 +58,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
                 return element.dateCreatedGmt!.isBefore(DateTime.now());
               },
             ).toList();
-            // y.sort((a, b) => a.id!.compareTo(b.id!));
+            y.sort((a, b) => a.id!.compareTo(b.id!));
             emit(
               state.copyWith(
                 products: y,

@@ -12,6 +12,7 @@ class SignupState with _$SignupState {
     required bool? showError,
     required bool? isLoading,
     required bool? isExpanded,
+    required bool? showSuccessToast,
     required int? panelIndex,
     required Option<Either<AuthFailure, Unit>>? authFailureOrSuccess,
   }) = _SignupState;
@@ -27,5 +28,6 @@ class SignupState with _$SignupState {
         lastName: '',
         isExpanded: false,
         panelIndex: -1,
+        showSuccessToast: false,
       );
 }

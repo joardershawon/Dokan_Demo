@@ -120,7 +120,7 @@ class ProfilePage extends StatelessWidget {
                                   height: 25,
                                 ),
                                 title: 'Passwords',
-                                children: const AccountExpansionItems(),
+                                children: const SizedBox.shrink(),
                               ),
                               const Divider(
                                 thickness: 1,
@@ -134,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                                   height: 25,
                                 ),
                                 title: 'Notifications',
-                                children: const AccountExpansionItems(),
+                                children: const SizedBox.shrink(),
                               ),
                               const Divider(
                                 thickness: 1,
@@ -148,7 +148,7 @@ class ProfilePage extends StatelessWidget {
                                   height: 25,
                                 ),
                                 title: 'Wishlist',
-                                children: const AccountExpansionItems(),
+                                children: const SizedBox.shrink(),
                               ),
                             ],
                           ),

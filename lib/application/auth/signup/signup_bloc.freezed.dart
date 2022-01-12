@@ -55,6 +55,10 @@ class _$SignupEventTearOff {
       index: index,
     );
   }
+
+  _LoadSuccess loadSuccess() {
+    return const _LoadSuccess();
+  }
 }
 
 /// @nodoc
@@ -73,6 +77,7 @@ mixin _$SignupEvent {
     required TResult Function(String? firstName, String? lastName)
         postUserChangedName,
     required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +89,7 @@ mixin _$SignupEvent {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,6 +101,7 @@ mixin _$SignupEvent {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +113,7 @@ mixin _$SignupEvent {
     required TResult Function(_GetUserCredentials value) getUserCredentials,
     required TResult Function(_PostUserChangedName value) postUserChangedName,
     required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -115,6 +123,7 @@ mixin _$SignupEvent {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -124,6 +133,7 @@ mixin _$SignupEvent {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -255,6 +265,7 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
     required TResult Function(String? firstName, String? lastName)
         postUserChangedName,
     required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
   }) {
     return registerWithCredentials(name, email, password, confirmPassword);
   }
@@ -269,6 +280,7 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
   }) {
     return registerWithCredentials?.call(
         name, email, password, confirmPassword);
@@ -284,6 +296,7 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
     required TResult orElse(),
   }) {
     if (registerWithCredentials != null) {
@@ -301,6 +314,7 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
     required TResult Function(_GetUserCredentials value) getUserCredentials,
     required TResult Function(_PostUserChangedName value) postUserChangedName,
     required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return registerWithCredentials(this);
   }
@@ -313,6 +327,7 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
   }) {
     return registerWithCredentials?.call(this);
   }
@@ -325,6 +340,7 @@ class _$_RegisterWithCredentials implements _RegisterWithCredentials {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
     if (registerWithCredentials != null) {
@@ -435,6 +451,7 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
     required TResult Function(String? firstName, String? lastName)
         postUserChangedName,
     required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
   }) {
     return loginWithCredentials(email, password);
   }
@@ -449,6 +466,7 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
   }) {
     return loginWithCredentials?.call(email, password);
   }
@@ -463,6 +481,7 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
     required TResult orElse(),
   }) {
     if (loginWithCredentials != null) {
@@ -480,6 +499,7 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
     required TResult Function(_GetUserCredentials value) getUserCredentials,
     required TResult Function(_PostUserChangedName value) postUserChangedName,
     required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return loginWithCredentials(this);
   }
@@ -492,6 +512,7 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
   }) {
     return loginWithCredentials?.call(this);
   }
@@ -504,6 +525,7 @@ class _$_LoginWithCredentials implements _LoginWithCredentials {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
     if (loginWithCredentials != null) {
@@ -575,6 +597,7 @@ class _$_GetUserCredentials implements _GetUserCredentials {
     required TResult Function(String? firstName, String? lastName)
         postUserChangedName,
     required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
   }) {
     return getUserCredentials();
   }
@@ -589,6 +612,7 @@ class _$_GetUserCredentials implements _GetUserCredentials {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
   }) {
     return getUserCredentials?.call();
   }
@@ -603,6 +627,7 @@ class _$_GetUserCredentials implements _GetUserCredentials {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
     required TResult orElse(),
   }) {
     if (getUserCredentials != null) {
@@ -620,6 +645,7 @@ class _$_GetUserCredentials implements _GetUserCredentials {
     required TResult Function(_GetUserCredentials value) getUserCredentials,
     required TResult Function(_PostUserChangedName value) postUserChangedName,
     required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return getUserCredentials(this);
   }
@@ -632,6 +658,7 @@ class _$_GetUserCredentials implements _GetUserCredentials {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
   }) {
     return getUserCredentials?.call(this);
   }
@@ -644,6 +671,7 @@ class _$_GetUserCredentials implements _GetUserCredentials {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
     if (getUserCredentials != null) {
@@ -743,6 +771,7 @@ class _$_PostUserChangedName implements _PostUserChangedName {
     required TResult Function(String? firstName, String? lastName)
         postUserChangedName,
     required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
   }) {
     return postUserChangedName(firstName, lastName);
   }
@@ -757,6 +786,7 @@ class _$_PostUserChangedName implements _PostUserChangedName {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
   }) {
     return postUserChangedName?.call(firstName, lastName);
   }
@@ -771,6 +801,7 @@ class _$_PostUserChangedName implements _PostUserChangedName {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
     required TResult orElse(),
   }) {
     if (postUserChangedName != null) {
@@ -788,6 +819,7 @@ class _$_PostUserChangedName implements _PostUserChangedName {
     required TResult Function(_GetUserCredentials value) getUserCredentials,
     required TResult Function(_PostUserChangedName value) postUserChangedName,
     required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return postUserChangedName(this);
   }
@@ -800,6 +832,7 @@ class _$_PostUserChangedName implements _PostUserChangedName {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
   }) {
     return postUserChangedName?.call(this);
   }
@@ -812,6 +845,7 @@ class _$_PostUserChangedName implements _PostUserChangedName {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
     if (postUserChangedName != null) {
@@ -907,6 +941,7 @@ class _$_ExpansionChanged implements _ExpansionChanged {
     required TResult Function(String? firstName, String? lastName)
         postUserChangedName,
     required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
   }) {
     return expansionChanged(index);
   }
@@ -921,6 +956,7 @@ class _$_ExpansionChanged implements _ExpansionChanged {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
   }) {
     return expansionChanged?.call(index);
   }
@@ -935,6 +971,7 @@ class _$_ExpansionChanged implements _ExpansionChanged {
     TResult Function()? getUserCredentials,
     TResult Function(String? firstName, String? lastName)? postUserChangedName,
     TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
     required TResult orElse(),
   }) {
     if (expansionChanged != null) {
@@ -952,6 +989,7 @@ class _$_ExpansionChanged implements _ExpansionChanged {
     required TResult Function(_GetUserCredentials value) getUserCredentials,
     required TResult Function(_PostUserChangedName value) postUserChangedName,
     required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
   }) {
     return expansionChanged(this);
   }
@@ -964,6 +1002,7 @@ class _$_ExpansionChanged implements _ExpansionChanged {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
   }) {
     return expansionChanged?.call(this);
   }
@@ -976,6 +1015,7 @@ class _$_ExpansionChanged implements _ExpansionChanged {
     TResult Function(_GetUserCredentials value)? getUserCredentials,
     TResult Function(_PostUserChangedName value)? postUserChangedName,
     TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
     required TResult orElse(),
   }) {
     if (expansionChanged != null) {
@@ -995,6 +1035,143 @@ abstract class _ExpansionChanged implements SignupEvent {
 }
 
 /// @nodoc
+abstract class _$LoadSuccessCopyWith<$Res> {
+  factory _$LoadSuccessCopyWith(
+          _LoadSuccess value, $Res Function(_LoadSuccess) then) =
+      __$LoadSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadSuccessCopyWithImpl<$Res> extends _$SignupEventCopyWithImpl<$Res>
+    implements _$LoadSuccessCopyWith<$Res> {
+  __$LoadSuccessCopyWithImpl(
+      _LoadSuccess _value, $Res Function(_LoadSuccess) _then)
+      : super(_value, (v) => _then(v as _LoadSuccess));
+
+  @override
+  _LoadSuccess get _value => super._value as _LoadSuccess;
+}
+
+/// @nodoc
+
+class _$_LoadSuccess implements _LoadSuccess {
+  const _$_LoadSuccess();
+
+  @override
+  String toString() {
+    return 'SignupEvent.loadSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoadSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)
+        registerWithCredentials,
+    required TResult Function(String? email, String? password)
+        loginWithCredentials,
+    required TResult Function() getUserCredentials,
+    required TResult Function(String? firstName, String? lastName)
+        postUserChangedName,
+    required TResult Function(int? index) expansionChanged,
+    required TResult Function() loadSuccess,
+  }) {
+    return loadSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
+    TResult Function()? getUserCredentials,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
+    TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
+  }) {
+    return loadSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? name, String? email, String? password,
+            String? confirmPassword)?
+        registerWithCredentials,
+    TResult Function(String? email, String? password)? loginWithCredentials,
+    TResult Function()? getUserCredentials,
+    TResult Function(String? firstName, String? lastName)? postUserChangedName,
+    TResult Function(int? index)? expansionChanged,
+    TResult Function()? loadSuccess,
+    required TResult orElse(),
+  }) {
+    if (loadSuccess != null) {
+      return loadSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RegisterWithCredentials value)
+        registerWithCredentials,
+    required TResult Function(_LoginWithCredentials value) loginWithCredentials,
+    required TResult Function(_GetUserCredentials value) getUserCredentials,
+    required TResult Function(_PostUserChangedName value) postUserChangedName,
+    required TResult Function(_ExpansionChanged value) expansionChanged,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+  }) {
+    return loadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
+    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
+    TResult Function(_GetUserCredentials value)? getUserCredentials,
+    TResult Function(_PostUserChangedName value)? postUserChangedName,
+    TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+  }) {
+    return loadSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RegisterWithCredentials value)? registerWithCredentials,
+    TResult Function(_LoginWithCredentials value)? loginWithCredentials,
+    TResult Function(_GetUserCredentials value)? getUserCredentials,
+    TResult Function(_PostUserChangedName value)? postUserChangedName,
+    TResult Function(_ExpansionChanged value)? expansionChanged,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    required TResult orElse(),
+  }) {
+    if (loadSuccess != null) {
+      return loadSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadSuccess implements SignupEvent {
+  const factory _LoadSuccess() = _$_LoadSuccess;
+}
+
+/// @nodoc
 class _$SignupStateTearOff {
   const _$SignupStateTearOff();
 
@@ -1008,6 +1185,7 @@ class _$SignupStateTearOff {
       required bool? showError,
       required bool? isLoading,
       required bool? isExpanded,
+      required bool? showSuccessToast,
       required int? panelIndex,
       required Option<Either<AuthFailure, Unit>>? authFailureOrSuccess}) {
     return _SignupState(
@@ -1020,6 +1198,7 @@ class _$SignupStateTearOff {
       showError: showError,
       isLoading: isLoading,
       isExpanded: isExpanded,
+      showSuccessToast: showSuccessToast,
       panelIndex: panelIndex,
       authFailureOrSuccess: authFailureOrSuccess,
     );
@@ -1040,6 +1219,7 @@ mixin _$SignupState {
   bool? get showError => throw _privateConstructorUsedError;
   bool? get isLoading => throw _privateConstructorUsedError;
   bool? get isExpanded => throw _privateConstructorUsedError;
+  bool? get showSuccessToast => throw _privateConstructorUsedError;
   int? get panelIndex => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>>? get authFailureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -1064,6 +1244,7 @@ abstract class $SignupStateCopyWith<$Res> {
       bool? showError,
       bool? isLoading,
       bool? isExpanded,
+      bool? showSuccessToast,
       int? panelIndex,
       Option<Either<AuthFailure, Unit>>? authFailureOrSuccess});
 }
@@ -1087,6 +1268,7 @@ class _$SignupStateCopyWithImpl<$Res> implements $SignupStateCopyWith<$Res> {
     Object? showError = freezed,
     Object? isLoading = freezed,
     Object? isExpanded = freezed,
+    Object? showSuccessToast = freezed,
     Object? panelIndex = freezed,
     Object? authFailureOrSuccess = freezed,
   }) {
@@ -1127,6 +1309,10 @@ class _$SignupStateCopyWithImpl<$Res> implements $SignupStateCopyWith<$Res> {
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
               as bool?,
+      showSuccessToast: showSuccessToast == freezed
+          ? _value.showSuccessToast
+          : showSuccessToast // ignore: cast_nullable_to_non_nullable
+              as bool?,
       panelIndex: panelIndex == freezed
           ? _value.panelIndex
           : panelIndex // ignore: cast_nullable_to_non_nullable
@@ -1156,6 +1342,7 @@ abstract class _$SignupStateCopyWith<$Res>
       bool? showError,
       bool? isLoading,
       bool? isExpanded,
+      bool? showSuccessToast,
       int? panelIndex,
       Option<Either<AuthFailure, Unit>>? authFailureOrSuccess});
 }
@@ -1181,6 +1368,7 @@ class __$SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
     Object? showError = freezed,
     Object? isLoading = freezed,
     Object? isExpanded = freezed,
+    Object? showSuccessToast = freezed,
     Object? panelIndex = freezed,
     Object? authFailureOrSuccess = freezed,
   }) {
@@ -1221,6 +1409,10 @@ class __$SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
               as bool?,
+      showSuccessToast: showSuccessToast == freezed
+          ? _value.showSuccessToast
+          : showSuccessToast // ignore: cast_nullable_to_non_nullable
+              as bool?,
       panelIndex: panelIndex == freezed
           ? _value.panelIndex
           : panelIndex // ignore: cast_nullable_to_non_nullable
@@ -1246,6 +1438,7 @@ class _$_SignupState implements _SignupState {
       required this.showError,
       required this.isLoading,
       required this.isExpanded,
+      required this.showSuccessToast,
       required this.panelIndex,
       required this.authFailureOrSuccess});
 
@@ -1268,13 +1461,15 @@ class _$_SignupState implements _SignupState {
   @override
   final bool? isExpanded;
   @override
+  final bool? showSuccessToast;
+  @override
   final int? panelIndex;
   @override
   final Option<Either<AuthFailure, Unit>>? authFailureOrSuccess;
 
   @override
   String toString() {
-    return 'SignupState(name: $name, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmPassword: $confirmPassword, showError: $showError, isLoading: $isLoading, isExpanded: $isExpanded, panelIndex: $panelIndex, authFailureOrSuccess: $authFailureOrSuccess)';
+    return 'SignupState(name: $name, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmPassword: $confirmPassword, showError: $showError, isLoading: $isLoading, isExpanded: $isExpanded, showSuccessToast: $showSuccessToast, panelIndex: $panelIndex, authFailureOrSuccess: $authFailureOrSuccess)';
   }
 
   @override
@@ -1294,6 +1489,8 @@ class _$_SignupState implements _SignupState {
             const DeepCollectionEquality()
                 .equals(other.isExpanded, isExpanded) &&
             const DeepCollectionEquality()
+                .equals(other.showSuccessToast, showSuccessToast) &&
+            const DeepCollectionEquality()
                 .equals(other.panelIndex, panelIndex) &&
             const DeepCollectionEquality()
                 .equals(other.authFailureOrSuccess, authFailureOrSuccess));
@@ -1311,6 +1508,7 @@ class _$_SignupState implements _SignupState {
       const DeepCollectionEquality().hash(showError),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isExpanded),
+      const DeepCollectionEquality().hash(showSuccessToast),
       const DeepCollectionEquality().hash(panelIndex),
       const DeepCollectionEquality().hash(authFailureOrSuccess));
 
@@ -1331,6 +1529,7 @@ abstract class _SignupState implements SignupState {
           required bool? showError,
           required bool? isLoading,
           required bool? isExpanded,
+          required bool? showSuccessToast,
           required int? panelIndex,
           required Option<Either<AuthFailure, Unit>>? authFailureOrSuccess}) =
       _$_SignupState;
@@ -1353,6 +1552,8 @@ abstract class _SignupState implements SignupState {
   bool? get isLoading;
   @override
   bool? get isExpanded;
+  @override
+  bool? get showSuccessToast;
   @override
   int? get panelIndex;
   @override
